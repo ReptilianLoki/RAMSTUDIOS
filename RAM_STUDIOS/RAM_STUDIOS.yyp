@@ -1,5 +1,8 @@
 {
   "resources": [
+    {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":1,},
+    {"id":{"name":"s_player","path":"sprites/s_player/s_player.yy",},"order":0,},
+    {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
