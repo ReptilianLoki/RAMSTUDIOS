@@ -1,30 +1,29 @@
 //Get inputs
-key_right = keyboard_check_direct(vk_right);
-key_left = keyboard_check_direct(vk_left);
+right = keyboard_check_direct(vk_right);
+left = keyboard_check_direct(vk_left);
+jump = keyboard_check(vk_up) or keyboard_check(ord("W"));
+slide = keyboard_check(vk_down) or keyboard_check(ord("S"));
+boost = keyboard_check_pressed(vk_shift); 
 
 prev_y = y;
 
-//Calculate Movement
-move = (key_right - key_left) //* SPD_WALK
-//hsp = move;
-if(key_right or key_left)
+#region State Machine
+switch (state)
 {
-	hsp += SPD_WALK * move;
-	if(hsp >= MAX_WALK)
-	{
-		hsp = MAX_WALK
-	}
-	else if(hsp <= -MAX_WALK)
-	{
-		hsp = -MAX_WALK;
-	}
+	case player.idle:
+	player_idle();
+	break;
+	
+	case player.moving:
+	player_walk();
+	break;
+	
+	case player.jump:
+	player_jump();
+	break;
+	
+	case player.slide:
+	player_slide();
+	break;
 }
-else
-{
-	hsp -= min(abs(hsp),current_friction) * sign(hsp);
-}
-
-vsp += SPD_GRAVITY
-
-x += hsp;
-y += vsp;
+#endregion
