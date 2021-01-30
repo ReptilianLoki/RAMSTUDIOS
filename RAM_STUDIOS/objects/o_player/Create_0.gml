@@ -1,7 +1,7 @@
 /// @description  Macros, Variables, Tilemap
-#macro SPD_WALK 0.25
+#macro SPD_WALK 0.1
 #macro SPD_GRAVITY 0.4
-#macro MAX_WALK 6
+#macro MAX_WALK 2
 #macro FRICTION 0.5
 
 hsp = 0;
