@@ -25,25 +25,81 @@ function movement()
 }
 function collision()
 {
+	//Temp Vars
+	var p1,p2,bbox_side;
+
+	//Re apply fractions
+	hsp += hsp_fraction;
+	vsp += vsp_fraction;
+	
+	//Store and Remove fractions
+	//Important: go into collision with whole integers ONLY!
+	hsp_fraction = hsp - (floor(abs(hsp)) * sign(hsp));
+	hsp -= hsp_fraction;
+	vsp_fraction = vsp - (floor(abs(vsp)) * sign(vsp));
+	vsp -= vsp_fraction;
+	
+	
 	//Horizontal Collision
-	if (place_meeting(x+hsp,y,o_wall))
+	if (hsp > 0) bbox_side = bbox_right; else bbox_side = bbox_left;
+	p1 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_top);
+	p2 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_bottom); 
+	if (tilemap_get_at_pixel(tilemap,x,bbox_bottom) > 1) p2 = 0; 
+	if (p1 == 1) || (p2 == 1) //Inside a tile with collision
 	{
-		while (!place_meeting(x+sign(hsp),y,o_wall))
-		{
-			x = x + sign(hsp);
-		}
+		if (hsp > 0) x = x - (x mod TILE_SIZE) + (TILE_SIZE-1) - (bbox_right - x);
+		else x = x - (x mod TILE_SIZE) - (bbox_left - x);
 		hsp = 0;
 	}
-	x = x + hsp;
+	x += hsp;
 	
 	//Vertical Collision
-	if (place_meeting(x,y+vsp,o_wall))
+	//is this not a slope?
+	if (vsp >= 0) bbox_side = bbox_bottom; else bbox_side = bbox_top;
+	p1 = tilemap_get_at_pixel(tilemap,bbox_left,bbox_side+vsp) 
+	p2 = tilemap_get_at_pixel(tilemap,bbox_right,bbox_side+vsp)
+	if (p1 == 1) || (p2 == 1)
 	{
-		while (!place_meeting(x,y+sign(vsp),o_wall))
-		{
-			y = y + sign(vsp);
-		}
+		if (vsp >= 0) y = y - (y mod TILE_SIZE) + (TILE_SIZE-1) - (bbox_bottom - y);
+		else y = y - (y mod TILE_SIZE) - (bbox_top - y);
 		vsp = 0;
 	}
-	y = y + vsp;
+	
+	var floordist = in_floor(tilemap,x,bbox_bottom+vsp);
+	if (floordist >= 0)
+	{
+		y += vsp;
+		y -= (floordist + 1);
+		vsp = 0; 
+		floordist = -1;
+	}
+	y += vsp;
+	
+	//Walk down slopes
+	if (grounded)
+	{
+		y += abs(floordist)-1;
+		//if at base of current tile
+		if ((bbox_bottom mod TILE_SIZE) == TILE_SIZE-1)
+		{
+			// if slope continues
+			if (tilemap_get_at_pixel(tilemap,x,bbox_bottom+1) > 1)
+			{
+				//move there
+				y += abs(in_floor(tilemap,x,bbox_bottom+1));
+			}
+			
+		}
+	}
+}
+function in_floor(argument0,argument1,argument2)
+{
+	var pos = tilemap_get_at_pixel(argument0,argument1,argument2);
+	if (pos > 0)
+	{
+		if (pos == 1) return (argument2 mod TILE_SIZE); //solid block, would end up returning true anyway but this is FASTER, GOTTAGOFAST.
+		var thefloor = global.heights[(argument1 mod TILE_SIZE) + pos*TILE_SIZE];
+		return ((argument2 mod TILE_SIZE) - thefloor);
+	} else return -(TILE_SIZE - (argument2 mod TILE_SIZE))
+
 }

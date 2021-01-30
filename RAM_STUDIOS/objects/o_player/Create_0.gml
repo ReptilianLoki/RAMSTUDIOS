@@ -9,6 +9,9 @@ vsp = 0;
 current_friction = FRICTION;
 grv_final = SPD_GRAVITY;
 prev_y = y;
+hsp_fraction = 0;
+vsp_fraction = 0;
+tilemap = layer_tilemap_get_id("Collision");
 
 enum player
 {
