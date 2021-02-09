@@ -3,7 +3,7 @@ function movement()
 	//Calculate Movement
 	move = (right - left) //* SPD_WALK
 	//hsp = move;
-	if (right or left)
+	if (right or left) and (!is_sliding)
 	{
 		hsp += SPD_WALK * move;
 		if (hsp >= MAX_WALK)
@@ -42,9 +42,6 @@ function collision()
 	
 	//Horizontal Collision
 	if (hsp > 0) bbox_side = bbox_right; else bbox_side = bbox_left;
-	
-	
-	
 	p1 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_top);
 	p2 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_bottom); 
 	if (tilemap_get_at_pixel(tilemap,x,bbox_bottom) > 1) p2 = 0; 
@@ -91,8 +88,8 @@ function collision()
 				//move there
 				y += abs(in_floor(tilemap,x,bbox_bottom+1));
 			}
-			
 		}
+		checkslide(); 
 	}
 }
 function in_floor(tilemap_id,x_pos,y_pos)
@@ -108,5 +105,46 @@ function in_floor(tilemap_id,x_pos,y_pos)
 }
 function checkslide()
 {
+	if (abs(hsp) > (MAX_WALK - 1))
+	{
+		if(!is_sliding)
+		{
+			can_slide = true;
+		}
+		else
+		{
+			can_slide = false;
+		}
+	}
 	
+	if ((left and hsp > 0) or (right and hsp < 0))
+	{
+		can_slide = false;
+	}
+	
+	//check if we are holding down the slide button
+	if (can_slide and slide)
+	{
+		is_sliding = true;
+		can_slide = false;
+		hsp = MAX_WALK * 1.8 * sign(hsp);
+		state = player.slide;
+	}
+	
+	//check if we are sliding but just released the slide key
+	if (is_sliding and !slide)
+	{
+		is_sliding = false;
+	}
+	
+	//do animation and friction logic
+	if (is_sliding)
+	{
+		current_friction = slide_friction;
+	}
+	else
+	{
+		current_friction = FRICTION;
+		is_sliding = false;
+	}
 }
