@@ -7,7 +7,7 @@
 hsp = 0;
 vsp = 0;
 current_friction = FRICTION;
-slide_friction = 0.1;
+slide_friction = 0.05;
 is_sliding = false;
 can_slide = true;
 grv_final = SPD_GRAVITY;
