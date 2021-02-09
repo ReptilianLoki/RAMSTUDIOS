@@ -9,7 +9,7 @@ if instance_exists(follow_object)
 
 //update object position
 x += (xTo - x) / 15; 
-y += (yTo - y) / 15; 
+y += (yTo - y) / 15
 
 //keeps camera center in the room
 x = clamp(x,view_width_half+buff,room_width-view_width_half-buff);

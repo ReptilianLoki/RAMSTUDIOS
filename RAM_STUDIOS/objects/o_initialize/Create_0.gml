@@ -1,4 +1,5 @@
 #macro TILE_SIZE 16
+
 tiles = sprite_get_width(s_collision) / TILE_SIZE
 heightstoget = tiles * TILE_SIZE;
 

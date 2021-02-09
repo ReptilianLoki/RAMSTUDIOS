@@ -12,6 +12,12 @@ function player_idle()
 		state = player.jump;
 	}
 	
+	//check slide state
+	if (slide)
+	{
+		state = player.slide; 
+	}
+	
 	movement();
 	collision();
 }
@@ -30,6 +36,12 @@ function player_walk()
 		state = player.jump;
 	}
 	
+	//check slide state
+	if (slide)
+	{
+		state = player.slide;
+	}
+	
 	movement();
 	collision();
 }
@@ -45,6 +57,12 @@ function player_jump()
 
 function player_slide()
 {
+	//slide
+	hsp -= min(abs(hsp),current_friction) * sign(hsp);
+	vsp += SPD_GRAVITY
+	
+	movement(); 
+	collision(); 
 
 }
 

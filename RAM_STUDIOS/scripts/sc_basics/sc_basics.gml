@@ -42,6 +42,9 @@ function collision()
 	
 	//Horizontal Collision
 	if (hsp > 0) bbox_side = bbox_right; else bbox_side = bbox_left;
+	
+	
+	
 	p1 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_top);
 	p2 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_bottom); 
 	if (tilemap_get_at_pixel(tilemap,x,bbox_bottom) > 1) p2 = 0; 
@@ -92,14 +95,18 @@ function collision()
 		}
 	}
 }
-function in_floor(argument0,argument1,argument2)
+function in_floor(tilemap_id,x_pos,y_pos)
 {
-	var pos = tilemap_get_at_pixel(argument0,argument1,argument2);
+	var pos = tilemap_get_at_pixel(tilemap_id,x_pos,y_pos);
 	if (pos > 0)
 	{
-		if (pos == 1) return (argument2 mod TILE_SIZE); //solid block, would end up returning true anyway but this is FASTER, GOTTAGOFAST.
-		var thefloor = global.heights[(argument1 mod TILE_SIZE) + pos*TILE_SIZE];
-		return ((argument2 mod TILE_SIZE) - thefloor);
-	} else return -(TILE_SIZE - (argument2 mod TILE_SIZE))
+		if (pos == 1) return (y_pos mod TILE_SIZE); //solid block, would end up returning true anyway but this is FASTER, GOTTAGOFAST.
+		var thefloor = global.heights[(x_pos mod TILE_SIZE) + pos*TILE_SIZE];
+		return ((y_pos mod TILE_SIZE) - thefloor);
+	} else return -(TILE_SIZE - (y_pos mod TILE_SIZE))
 
+}
+function checkslide()
+{
+	
 }
