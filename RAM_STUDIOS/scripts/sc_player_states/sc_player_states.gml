@@ -57,9 +57,6 @@ function player_jump()
 
 function player_slide()
 {
-	//slide
-	hsp -= min(abs(hsp),current_friction) * sign(hsp);
-	vsp += SPD_GRAVITY
 	
 	//check if we are sliding but just released the slide key
 	if (is_sliding and !slide)
