@@ -8,7 +8,7 @@ function movement()
 		hsp += SPD_WALK * move;
 		if (hsp >= MAX_WALK)
 		{
-			hsp = MAX_WALK
+			hsp = MAX_WALK;
 		}
 		else if (hsp <= -MAX_WALK)
 		{
@@ -106,6 +106,7 @@ function in_floor(tilemap_id,x_pos,y_pos)
 }
 function checkslide()
 {
+	//Can't slide unless we are moving near max speed.
 	if (abs(hsp) > (MAX_WALK - 1))
 	{
 		if(!is_sliding) and (!incline_check)
@@ -118,12 +119,13 @@ function checkslide()
 		}
 	}
 	
+	//Cannot immediatly slide after direction change
 	if ((left and hsp > 0) or (right and hsp < 0))
 	{
 		can_slide = false;
 	}
 	
-	//check if we are holding down the slide button
+	//Check if we are holding down the slide button.
 	if (can_slide and slide)
 	{
 		is_sliding = true;
@@ -132,13 +134,13 @@ function checkslide()
 		state = player.slide;
 	}
 	
-	//check if we are sliding but just released the slide key
+	//Check if we are sliding but just released the slide key.
 	if (is_sliding and !slide)
 	{
 		is_sliding = false;
 	}
 	
-	//do animation and friction logic
+	//do friction logic
 	if (is_sliding)
 	{
 		current_friction = slide_friction;
@@ -146,9 +148,10 @@ function checkslide()
 	else
 	{
 		current_friction = FRICTION;
-		is_sliding = false;
+		//is_sliding = false;
 	}
 }
+
 function check_inclinedecline(y_pos)
 {
 	
