@@ -7,7 +7,10 @@
 hsp = 0;
 vsp = 0;
 current_friction = FRICTION;
-slide_friction = 0.05;
+slide_friction = 0.02;
+incline_friction = .1;
+incline_walk_friction = .1;
+decline_friction = .1;
 is_sliding = false;
 can_slide = true;
 grv_final = SPD_GRAVITY;

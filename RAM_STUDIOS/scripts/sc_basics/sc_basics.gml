@@ -90,6 +90,10 @@ function collision()
 			}
 		}
 		checkslide(); 
+		if (left or right)
+		{
+			check_inclinedecline(y);
+		}
 	}
 }
 function in_floor(tilemap_id,x_pos,y_pos)
@@ -107,7 +111,7 @@ function checkslide()
 {
 	if (abs(hsp) > (MAX_WALK - 1))
 	{
-		if(!is_sliding)
+		if(!is_sliding) and (!incline_check)
 		{
 			can_slide = true;
 		}
@@ -146,5 +150,34 @@ function checkslide()
 	{
 		current_friction = FRICTION;
 		is_sliding = false;
+	}
+}
+function check_inclinedecline(y_pos)
+{
+	
+	if (y_pos < prev_y)
+	{
+		incline_check = true;
+		
+		if (is_sliding)
+		{
+			hsp *= incline_friction;
+			vsp *= incline_friction;
+		}
+		else
+		{
+			hsp *= incline_walk_friction;
+			vsp *= incline_walk_friction;
+		}
+	}
+	else
+	{
+		incline_check = false;
+		
+		if (y_pos > prev_y)
+		{
+			hsp *= decline_friction;
+			vsp *= decline_friction;
+		}
 	}
 }
