@@ -8,7 +8,7 @@
 hsp = 0;
 vsp = 0;
 current_friction = FRICTION;
-slide_friction = 0.013;
+slide_friction = 0.022;
 incline_friction = .1;
 incline_walk_friction = .1;
 //decline_friction = .1;

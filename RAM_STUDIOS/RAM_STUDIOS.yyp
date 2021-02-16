@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":1,},
     {"id":{"name":"sc_basics","path":"scripts/sc_basics/sc_basics.yy",},"order":0,},
+    {"id":{"name":"s_player_slide","path":"sprites/s_player_slide/s_player_slide.yy",},"order":2,},
     {"id":{"name":"initialize","path":"rooms/initialize/initialize.yy",},"order":0,},
     {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":3,},
     {"id":{"name":"o_initialize","path":"objects/o_initialize/o_initialize.yy",},"order":6,},

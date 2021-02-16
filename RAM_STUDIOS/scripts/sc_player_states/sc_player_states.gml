@@ -54,11 +54,12 @@ function player_jump()
 
 function player_slide()
 {
-	
+	sprite_index = s_player_slide;
 	//check if we are sliding but just released the slide key
 	if (is_sliding and !slide)
 	{
 		state = player.moving;
+		sprite_index = s_player;
 	}
 	
 	movement(); 
