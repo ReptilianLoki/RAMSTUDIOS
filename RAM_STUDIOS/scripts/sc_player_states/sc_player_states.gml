@@ -47,10 +47,7 @@ function player_walk()
 }
 
 function player_jump()
-{
-	//move upwards
-	vsp += grv_final;
-	
+{	
 	movement();
 	collision();
 }

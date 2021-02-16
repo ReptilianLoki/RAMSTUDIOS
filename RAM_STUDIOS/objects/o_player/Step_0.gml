@@ -1,7 +1,7 @@
 //Get inputs
 right = keyboard_check_direct(vk_right);
 left = keyboard_check_direct(vk_left);
-jump = keyboard_check(vk_up) or keyboard_check(ord("W"));
+jump = keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord("W"));
 slide = keyboard_check(vk_space); 
 
 //for collision

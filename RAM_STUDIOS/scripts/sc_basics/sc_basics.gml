@@ -20,6 +20,13 @@ function movement()
 		hsp -= min(abs(hsp),current_friction) * sign(hsp);
 	}
 	
+	//jump
+	if (jump and grounded) //and !incline_check and !decline_check)
+	{
+		vsp = -SPD_JUMP;
+		grounded = false;
+	}
+	
 	vsp += SPD_GRAVITY
 
 }
@@ -154,7 +161,7 @@ function checkslide()
 
 function check_inclinedecline(y_pos)
 {
-	
+	// Incline Check
 	if (y_pos < prev_y)
 	{
 		incline_check = true;
@@ -170,11 +177,16 @@ function check_inclinedecline(y_pos)
 	}
 	else
 	{
-		incline_check = false;
-		
-		if (y_pos > prev_y) and (!is_sliding) //player walks DOWN slowly 
-		{
-			hsp *= decline_friction;
-		}
+		incline_check = false;	
+	}
+
+	// Decline Check
+	if (y_pos > prev_y)
+	{
+		decline_check = true;
+	}
+	else
+	{
+		decline_check = false;
 	}
 }
