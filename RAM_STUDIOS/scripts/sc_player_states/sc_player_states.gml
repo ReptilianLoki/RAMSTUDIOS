@@ -1,5 +1,6 @@
 function player_idle()
 {
+	sprite_index = s_player;
 	//check moving state
 	if (left or right)
 	{
@@ -12,18 +13,14 @@ function player_idle()
 		state = player.jump;
 	}
 	
-	//check slide state
-	if (slide)
-	{
-		state = player.slide; 
-	}
-	
 	movement();
 	collision();
 }
 
 function player_walk()
 {
+	can_boost = true;
+	sprite_index = s_player;
 	//check idle state
 	if (hsp == 0 or !left and !right)
 	{
@@ -48,6 +45,7 @@ function player_walk()
 
 function player_jump()
 {	
+	sprite_index = s_player;
 	movement();
 	collision();
 }
@@ -59,7 +57,12 @@ function player_slide()
 	if (is_sliding and !slide)
 	{
 		state = player.moving;
-		sprite_index = s_player;
+	}
+	
+	if(is_sliding and can_boost and boost)
+	{
+		hsp = MAX_WALK * BOOST_SPD * sign(hsp);
+		can_boost = false;
 	}
 	
 	movement(); 

@@ -111,6 +111,7 @@ function in_floor(tilemap_id,x_pos,y_pos)
 	} else return -(TILE_SIZE - (y_pos mod TILE_SIZE))
 
 }
+
 function checkslide()
 {
 	//Can't slide unless we are moving near max speed.

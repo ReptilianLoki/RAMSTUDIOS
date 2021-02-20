@@ -4,6 +4,7 @@
 #macro MAX_WALK 2
 #macro FRICTION 0.5
 #macro SPD_JUMP 5
+#macro BOOST_SPD 2
 
 hsp = 0;
 vsp = 0;
@@ -18,6 +19,8 @@ can_slide = true;
 prev_y = y;
 hsp_fraction = 0;
 vsp_fraction = 0;
+can_boost = false;
+incline_check = false;
 tilemap = layer_tilemap_get_id("Collision");
 
 enum player
