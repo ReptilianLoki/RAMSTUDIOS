@@ -1,4 +1,4 @@
-function screen_shake()
+function screen_shake(magnitude,frames)
 {
 	/// @desc ScreenShake (magnitude,frames)
 	/// @arg Magnitude sets the strength of the shake (radius in pixels)
@@ -6,11 +6,11 @@ function screen_shake()
 	
 	with (o_camera)
 	{
-		if (argument0 > shake_remain)
+		if (magnitude > shake_remain)
 		{
-		shake_magnitude = argument0;
-		shake_remain = argument0;
-		shake_length = argument1;
+		shake_magnitude = magnitude;
+		shake_remain = magnitude;
+		shake_length = frames;
 		}
 	}
 }
@@ -24,7 +24,5 @@ function transition()
 	{
 		mode = argument[0];
 		if(argument_count > 1) target = argument[1];
-	}
-		
-		
+	}	
 }

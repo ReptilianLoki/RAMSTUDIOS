@@ -140,6 +140,7 @@ function checkslide()
 		can_slide = false;
 		hsp = MAX_WALK * 1.8 * sign(hsp);
 		state = player.slide;
+		screen_shake(SCREEN_MAGNITUDE,SCREEN_FRAMES);
 	}
 	
 	//Check if we are sliding but just released the slide key.

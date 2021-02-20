@@ -59,10 +59,12 @@ function player_slide()
 		state = player.moving;
 	}
 	
+	//Slide Boost
 	if(is_sliding and can_boost and boost)
 	{
 		hsp = MAX_WALK * BOOST_SPD * sign(hsp);
 		can_boost = false;
+		screen_shake(SCREEN_MAGNITUDE*2,SCREEN_FRAMES*2);
 	}
 	
 	movement(); 

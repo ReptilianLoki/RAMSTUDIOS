@@ -5,6 +5,8 @@
 #macro FRICTION 0.5
 #macro SPD_JUMP 5
 #macro BOOST_SPD 2
+#macro SCREEN_MAGNITUDE 2
+#macro SCREEN_FRAMES 5
 
 hsp = 0;
 vsp = 0;
