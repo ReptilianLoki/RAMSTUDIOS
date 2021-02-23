@@ -1,0 +1,1 @@
+transition(TRANS_MODE.RESTART);

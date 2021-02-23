@@ -1,0 +1,41 @@
+draw_sprite_ext(sprite,frame,x,y,xScale * facing,yScale,angle,color,alpha)
+if (!can_squish)
+{
+	xScale = 1;
+	yScale = 1;
+}	
+if (state = player.slide)
+{
+	//slide sprite
+	sprite = s_player_slide;
+	
+	//boost sprite
+	if (boost) 
+	{
+		sprite = s_player_boost;
+	}
+	
+	//changes angle of sprite on decling slopes
+	if (decline_check) 
+	{
+
+		if (hsp <= 0)
+		{
+			angle = 45;
+		}
+		if (hsp >= 0) 
+		{
+			angle = -45;
+		}
+	}
+	else  
+	{
+		angle = 0; 
+	}
+}
+else
+{
+	sprite = s_player; 
+	angle = 0; 
+}
+
