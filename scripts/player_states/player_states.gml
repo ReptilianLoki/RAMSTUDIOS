@@ -30,7 +30,7 @@ function player_walk()
 	}
 	
 	//check slide state
-	if (slide)
+	if (slide and !incline_check)
 	{
 		state = player.slide;
 	}

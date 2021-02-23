@@ -4,7 +4,7 @@ if (!can_squish)
 	xScale = 1;
 	yScale = 1;
 }	
-if (state = player.slide)
+if (state == player.slide)
 {
 	//slide sprite
 	sprite = s_player_slide;
