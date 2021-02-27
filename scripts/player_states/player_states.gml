@@ -40,6 +40,24 @@ function player_walk()
 }
 function player_jump()
 {	
+	//check idle state
+	if (hsp == 0 or !left and !right)
+	{
+		state = player.idle;
+	}
+	
+	//check slide state
+	if (slide and !incline_check)
+	{
+		state = player.slide;
+	}
+	
+	//check moving state
+	if (left or right)
+	{
+		state = player.moving;
+	}
+	
 	movement();
 	collision();
 }

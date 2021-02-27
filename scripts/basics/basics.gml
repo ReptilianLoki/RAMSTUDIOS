@@ -60,7 +60,7 @@ function collision()
 	if (hsp > 0) bbox_side = bbox_right; else bbox_side = bbox_left;
 	p1 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_top);
 	p2 = tilemap_get_at_pixel(tilemap,bbox_side+hsp,bbox_bottom);
-	if (tilemap_get_at_pixel(tilemap,x,bbox_bottom) > 1) p2 = 0; 
+	if (tilemap_get_at_pixel(tilemap,x,bbox_bottom) > 1) p2 = 0;
 	if (p1 == 1) || (p2 == 1) //Inside a tile with collision
 	{
 		if (hsp > 0) x = x - (x mod TILE_SIZE) + (TILE_SIZE-1) - (bbox_right - x);
@@ -78,7 +78,10 @@ function collision()
 	{
 		if (vsp >= 0) y = y - (y mod TILE_SIZE) + (TILE_SIZE-1) - (bbox_bottom - y);
 		else y = y - (y mod TILE_SIZE) - (bbox_top - y);
-		vsp = 0;
+		if grounded
+		{
+			vsp = 0;
+		}
 	}
 	
 	var floordist = in_floor(tilemap,x,bbox_bottom+vsp);
