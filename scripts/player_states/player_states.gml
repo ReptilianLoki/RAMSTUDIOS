@@ -17,6 +17,7 @@ function player_idle()
 }
 function player_walk()
 {
+	
 	//check idle state
 	if (hsp == 0 or !left and !right)
 	{

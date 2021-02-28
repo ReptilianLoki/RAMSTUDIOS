@@ -4,11 +4,17 @@ if (!can_squish)
 	xScale = 1;
 	yScale = 1;
 }	
-if (state == player.slide)
+if (state == player.slide and slide)
 {
 	//slide sprite
-	sprite = s_player_slide;
-	
+	if (state == player.slide)
+	{
+		sprite = s_player_slide;
+	}
+	else if (!slide)
+	{
+		sprite = s_player;
+	}
 	//boost sprite
 	if (boost) 
 	{
