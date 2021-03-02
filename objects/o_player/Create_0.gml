@@ -2,7 +2,10 @@
 #macro SPD_WALK 0.9
 #macro SPD_GRAVITY 0.4
 #macro MAX_WALK 2
-#macro FRICTION 0.5
+#macro FRICTION 0.5 
+#macro SLIDE_FRICTION 0.022 
+#macro INCLINE_SLIDE_FRICTION 0.85 
+#macro INCLINE_WALK_FRICTION 0.1
 #macro SPD_JUMP 5
 #macro BOOST_SPD 3
 #macro MAX_BOOST 5.5
@@ -14,9 +17,6 @@ animation_initialize();
 hsp = 0;
 vsp = 0;
 current_friction = FRICTION;
-slide_friction = 0.022;
-incline_friction = .1;
-incline_walk_friction = .1;
 //decline_friction = .1;
 is_sliding = false;
 can_slide = false;

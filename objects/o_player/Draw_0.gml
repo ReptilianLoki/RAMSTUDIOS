@@ -4,7 +4,7 @@ if (!can_squish)
 	xScale = 1;
 	yScale = 1;
 }	
-if (state == player.slide and slide)
+if (state == player.slide) and (slide) 
 {
 	//slide sprite
 	if (state == player.slide)
@@ -34,7 +34,18 @@ if (state == player.slide and slide)
 			angle = -45;
 		}
 	}
-	else  
+	else if (incline_check) 
+	{
+		if (hsp <= 0)
+		{
+			angle = -45;
+		}
+		if (hsp >= 0) 
+		{
+			angle = 45;
+		}
+	}
+	else if (!incline_check) and (!decline_check)
 	{
 		angle = 0; 
 	}

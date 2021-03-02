@@ -23,7 +23,7 @@ function movement()
 	}
 	
 	//jump
-	if (jump and grounded) //and !incline_check and !decline_check)
+	if (jump and grounded) 
 	{
 		vsp = -SPD_JUMP;
 		grounded = false;
@@ -78,7 +78,7 @@ function collision()
 	{
 		if (vsp >= 0) y = y - (y mod TILE_SIZE) + (TILE_SIZE-1) - (bbox_bottom - y);
 		else y = y - (y mod TILE_SIZE) - (bbox_top - y);
-		if grounded
+		if (grounded)
 		{
 			vsp = 0;
 		}
@@ -137,7 +137,7 @@ function checkslide()
 	//Can't slide unless we are moving near max speed.
 	if (abs(hsp) > (MAX_WALK - 1))
 	{
-		if(!is_sliding) and (!incline_check)
+		if (!is_sliding) // and (!incline_check)
 		{
 			can_slide = true;
 		}
@@ -173,12 +173,11 @@ function checkslide()
 	//do friction logic
 	if (is_sliding)
 	{
-		current_friction = slide_friction;
+		current_friction = SLIDE_FRICTION;
 	}
 	else
 	{
 		current_friction = FRICTION;
-		//is_sliding = false;
 	}
 }
 function in_floor(tilemap_id,x_pos,y_pos)
@@ -200,11 +199,11 @@ function check_inclinedecline(y_pos)
 		
 		if (is_sliding) //stops player from sliding up
 		{
-			hsp *= incline_friction;
+			hsp *= INCLINE_SLIDE_FRICTION;
 		}
 		else //player walks UP slowly 
 		{
-			hsp *= incline_walk_friction;
+			hsp *= INCLINE_WALK_FRICTION;
 		}
 	}
 	else

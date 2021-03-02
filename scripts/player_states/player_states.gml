@@ -31,7 +31,7 @@ function player_walk()
 	}
 	
 	//check slide state
-	if (slide and !incline_check)
+	if (slide) // and !incline_check)
 	{
 		state = player.slide;
 	}
@@ -48,7 +48,7 @@ function player_jump()
 	}
 	
 	//check slide state
-	if (slide and !incline_check)
+	if (slide) // and !incline_check)
 	{
 		state = player.slide;
 	}
