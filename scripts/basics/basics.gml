@@ -22,16 +22,20 @@ function movement()
 		hsp -= min(abs(hsp),current_friction) * sign(hsp);
 	}
 	
+	can_jump--;
+	
 	//jump
-	if (jump and grounded) 
+	if (jump) and (can_jump > 0)
 	{
 		if (is_sliding) and (!can_boost) 
 		{
 			vsp = -BOOST_JUMP;
+			can_jump = 0; 
 		}
 		else
 		{
 			vsp = -SPD_JUMP;
+			can_jump = 0; 
 		}
 		grounded = false;
 		can_squish = true; 
@@ -117,7 +121,8 @@ function collision()
 		}
 		checkslide(); 
 		check_inclinedecline(y);
-	}
+		can_jump = 10;
+	} 
 }
 function animation_initialize()
 {

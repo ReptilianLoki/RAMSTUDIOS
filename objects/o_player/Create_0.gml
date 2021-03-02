@@ -27,6 +27,7 @@ prev_y = y;
 hsp_fraction = 0;
 vsp_fraction = 0;
 can_boost = false;
+can_jump = 0; 
 decline_check = false;
 incline_check = false;
 tilemap = layer_tilemap_get_id("Collision");
