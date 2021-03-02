@@ -25,7 +25,14 @@ function movement()
 	//jump
 	if (jump and grounded) 
 	{
-		vsp = -SPD_JUMP;
+		if (is_sliding) and (!can_boost) 
+		{
+			vsp = -BOOST_JUMP;
+		}
+		else
+		{
+			vsp = -SPD_JUMP;
+		}
 		grounded = false;
 		can_squish = true; 
 		squash_and_stretch(0.8,0.15,1.3,0.15);
