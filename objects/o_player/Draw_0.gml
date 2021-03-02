@@ -1,4 +1,5 @@
 draw_sprite_ext(sprite,frame,x,y,xScale * facing,yScale,angle,color,alpha)
+var pos = tilemap_get_at_pixel(tilemap,x,y);
 if (!can_squish)
 {
 	xScale = 1;
@@ -45,9 +46,13 @@ if (state == player.slide) and (slide)
 			angle = 45;
 		}
 	}
-	else if (!incline_check) and (!decline_check)
+	else if pos == 2 or pos == 3
 	{
-		angle = 0; 
+		angle = angle; 
+	}
+	else
+	{
+		angle = 0;
 	}
 }
 else
