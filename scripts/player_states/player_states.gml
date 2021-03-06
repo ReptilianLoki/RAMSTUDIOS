@@ -64,25 +64,58 @@ function player_jump()
 }
 function player_slide()
 {
-	//check if we are sliding but just released the slide key
-	if (is_sliding and !slide)
+
+	//Can't slide unless we are moving near max speed.
+	if (abs(hsp) > (MAX_WALK - 1))
 	{
-		state = player.moving;
+		if (!is_sliding) // and (!incline_check)
+		{
+			can_slide = true;
+		}
+		else
+		{
+			can_slide = false;
+		}
 	}
 	
-	//Slide Boost
-	if (is_sliding and can_boost and boost)
+	//Cannot immediatly slide after direction change
+	if ((left and hsp > 0) or (right and hsp < 0))
 	{
+		can_slide = false; 
+	}
+	
+	//Check if we are holding down the slide button.
+	if (can_slide and slide)
+	{
+		boost_timer = 15; 
+		is_sliding = true;
+		can_slide = false;
+		hsp = MAX_WALK * 1.8 * sign(hsp);
+		state = player.slide;
+		screen_shake(SCREEN_MAGNITUDE,SCREEN_FRAMES);
+		dust(); 
+	}
+	
+	//check if we are sliding but just released the slide key.
+	if (is_sliding and !slide)
+	{
+		is_sliding = false;
+	}
+	
+	//check if we are boosting but just released the boost key.
+	if (is_boosting and !boost_key_check)
+	{
+		is_boosting = false; 
+	}
+	
+	//slide boost
+	if (is_sliding and boost and grounded and (global.coin_count >= 3))
+	{
+		boost_timer = BOOST_TIMER; 
+		is_boosting = true; 
+		// can_boost = false;
+		global.coin_count -= 3; 
 		hsp = MAX_WALK * BOOST_SPD * sign(hsp);
-		if (hsp >= MAX_BOOST)
-		{
-			hsp = MAX_BOOST;
-		}
-		else if (hsp <= -MAX_BOOST)
-		{
-			hsp = -MAX_BOOST;
-		}
-		can_boost = false;
 		screen_shake(SCREEN_MAGNITUDE*2,SCREEN_FRAMES*2);
 		dust();
 	}

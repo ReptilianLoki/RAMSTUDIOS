@@ -1,5 +1,11 @@
 function movement()
-{
+{		
+	//can_jump timer
+	can_jump--;
+	
+	//boost timer
+	boost_timer--; 
+	
 	//Calculate Movement
 	move = (right - left) //* SPD_WALK
 	
@@ -15,19 +21,17 @@ function movement()
 		{
 			hsp = -MAX_WALK;
 		}
-		can_boost = true;
+		//can_boost = true;
 	}
 	else
 	{
 		hsp -= min(abs(hsp),current_friction) * sign(hsp);
 	}
-	
-	can_jump--;
-	
+
 	//jump
 	if (jump) and (can_jump > 0)
 	{
-		if (is_sliding) and (!can_boost) 
+		if (is_sliding) and (is_boosting)
 		{
 			vsp = -BOOST_JUMP;
 			can_jump = 0; 
@@ -45,6 +49,45 @@ function movement()
 	else if (grounded)
 	{
 		can_squish = false;
+	}
+	
+	//do friction logic
+	current_friction = FRICTION
+	
+	if (is_sliding) or (is_boosting)
+	{
+		current_friction = SLIDE_FRICTION
+		if (decline_check)
+		{
+			current_friction = DECLINE_SLIDE_FRICTION
+			hsp = hsp + DECLINE_MOMENTUM
+		}
+		
+		if (incline_check) 
+		{
+			current_friction = INCLINE_SLIDE_FRICTION
+			hsp = hsp - INCLINE_MOMENTUM
+		}
+	}
+	else if (!is_sliding) or (!is_boosting)
+	{
+		current_friction = FRICTION
+		if (decline_check) current_friction = DECLINE_WALK_FRICTION
+		if (incline_check) current_friction = INCLINE_WALK_FRICTION
+	}
+	else 
+	{
+		current_friction = FRICTION 
+	}
+	
+	//cap slide speed
+	if (hsp >= MAX_SLIDE)
+	{
+		hsp = MAX_SLIDE;
+	}
+	else if (hsp <= -MAX_SLIDE)
+	{
+		hsp = -MAX_SLIDE;
 	}
 	
 	vsp += SPD_GRAVITY
@@ -119,9 +162,8 @@ function collision()
 				y += abs(in_floor(tilemap,x,bbox_bottom+1));
 			}
 		}
-		checkslide(); 
 		check_inclinedecline(y);
-		can_jump = 10;
+		can_jump = COYOTE_TIME;
 	} 
 }
 function animation_initialize()
@@ -144,54 +186,6 @@ function animation_initialize()
 	// frameSpeed = 1;
 	facing = 1;	
 }
-function checkslide()
-{
-	//Can't slide unless we are moving near max speed.
-	if (abs(hsp) > (MAX_WALK - 1))
-	{
-		if (!is_sliding) // and (!incline_check)
-		{
-			can_slide = true;
-		}
-		else
-		{
-			can_slide = false;
-		}
-	}
-	
-	//Cannot immediatly slide after direction change
-	if ((left and hsp > 0) or (right and hsp < 0))
-	{
-		can_slide = false;
-	}
-	
-	//Check if we are holding down the slide button.
-	if (can_slide and slide)
-	{
-		is_sliding = true;
-		can_slide = false;
-		hsp = MAX_WALK * 1.8 * sign(hsp);
-		state = player.slide;
-		screen_shake(SCREEN_MAGNITUDE,SCREEN_FRAMES);
-		dust(); 
-	}
-	
-	//Check if we are sliding but just released the slide key.
-	if (is_sliding and !slide)
-	{
-		is_sliding = false;
-	}
-	
-	//do friction logic
-	if (is_sliding)
-	{
-		current_friction = SLIDE_FRICTION;
-	}
-	else
-	{
-		current_friction = FRICTION;
-	}
-}
 function in_floor(tilemap_id,x_pos,y_pos)
 {
 	var pos = tilemap_get_at_pixel(tilemap_id,x_pos,y_pos);
@@ -208,15 +202,6 @@ function check_inclinedecline(y_pos)
 	if (y_pos < prev_y)
 	{
 		incline_check = true;
-		
-		if (is_sliding) //stops player from sliding up
-		{
-			hsp *= INCLINE_SLIDE_FRICTION;
-		}
-		else //player walks UP slowly 
-		{
-			hsp *= INCLINE_WALK_FRICTION;
-		}
 	}
 	else
 	{
@@ -232,6 +217,7 @@ function check_inclinedecline(y_pos)
 	{
 		decline_check = false;
 	}
+	
 }
 function approach(start,ending,shift)
 {

@@ -1,28 +1,28 @@
 draw_sprite_ext(sprite,frame,x,y,xScale * facing,yScale,angle,color,alpha)
-var pos = tilemap_get_at_pixel(tilemap,x,y);
+
 if (!can_squish)
 {
 	xScale = 1;
 	yScale = 1;
 }	
+
 if (state == player.slide) and (slide) 
 {
 	//slide sprite
-	if (state == player.slide)
-	{
-		sprite = s_player_slide;
-	}
-	else if (!slide)
-	{
-		sprite = s_player;
-	}
+	sprite = s_player_slide;
+	
 	//boost sprite
-	if (boost) 
+	if (is_boosting) 
 	{
 		sprite = s_player_boost;
+	} 
+	else 
+	{
+		sprite = s_player_slide; 
 	}
 	
 	//changes angle of sprite on decling slopes
+	var pos = tilemap_get_at_pixel(tilemap,x,y);
 	if (decline_check) 
 	{
 
@@ -46,7 +46,7 @@ if (state == player.slide) and (slide)
 			angle = 45;
 		}
 	}
-	else if pos == 2 or pos == 3
+	else if (pos == 2) or (pos == 3)
 	{
 		angle = angle; 
 	}
