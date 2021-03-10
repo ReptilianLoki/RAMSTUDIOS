@@ -1,55 +1,10 @@
 function movement()
-{		
+{	
 	//can_jump timer
 	can_jump--;
 	
-	//boost timer
-	boost_timer--; 
-	
 	//Calculate Movement
 	move = (right - left) //* SPD_WALK
-	
-	//hsp = move;
-	if (right or left) and (!is_sliding)
-	{
-		hsp += SPD_WALK * move;
-		if (hsp >= MAX_WALK)
-		{
-			hsp = MAX_WALK;
-		}
-		else if (hsp <= -MAX_WALK)
-		{
-			hsp = -MAX_WALK;
-		}
-		//can_boost = true;
-	}
-	else
-	{
-		hsp -= min(abs(hsp),current_friction) * sign(hsp);
-	}
-
-	//jump
-	if (jump) and (can_jump > 0)
-	{
-		if (is_sliding) and (is_boosting)
-		{
-			vsp = -BOOST_JUMP;
-			can_jump = 0; 
-		}
-		else
-		{
-			vsp = -SPD_JUMP;
-			can_jump = 0; 
-		}
-		grounded = false;
-		can_squish = true; 
-		squash_and_stretch(0.8,0.15,1.3,0.15);
-		dust(); 
-	}
-	else if (grounded)
-	{
-		can_squish = false;
-	}
 	
 	//do friction logic
 	current_friction = FRICTION
@@ -71,12 +26,6 @@ function movement()
 	}
 	else if (!is_sliding) or (!is_boosting)
 	{
-		current_friction = FRICTION
-		if (decline_check) current_friction = DECLINE_WALK_FRICTION
-		if (incline_check) current_friction = INCLINE_WALK_FRICTION
-	}
-	else 
-	{
 		current_friction = FRICTION 
 	}
 	
@@ -88,6 +37,85 @@ function movement()
 	else if (hsp <= -MAX_SLIDE)
 	{
 		hsp = -MAX_SLIDE;
+	}
+	
+	//hsp = move;
+	if (right or left) and (!is_sliding)
+	{
+		hsp += SPD_WALK * move;
+		
+		if (hsp >= MAX_WALK)
+		{
+			hsp = MAX_WALK;
+
+		}
+		else if (hsp <= -MAX_WALK)
+		{
+			hsp = -MAX_WALK;
+		}
+	}
+	else
+	{
+		//slide friction applied here
+		hsp -= min(abs(hsp),current_friction) * sign(hsp);
+	}
+
+	//check if we are sliding but just released the slide key.
+	if (is_sliding and !slide)
+	{
+		is_sliding = false;
+	}
+	
+	//check if we are boosting but just released the boost key.
+	if (is_boosting and !boost_key_check)
+	{
+		is_boosting = false; 
+	}
+	
+	//check coin count to see if we can boost
+	if (global.coin_count >= 3) 
+	{
+		//can't boost by holding the key down 
+		if (!is_boosting)
+		{
+			can_boost = true;
+		}
+	}
+	else
+	{
+		can_boost = false; 
+	}
+	
+	//jump
+	if (jump) and (can_jump > 0)
+	{
+		if (is_sliding) and (is_boosting)
+		{
+			//can't get boost jump unless near max slide speed
+			if (abs(hsp) > (MAX_SLIDE - boost_jump_buffer))
+			{
+				vsp = -BOOST_JUMP;
+				can_jump = 0; 
+			}
+			else
+			{
+				vsp = -SPD_JUMP;
+				can_jump = 0; 
+			}
+		}
+		else
+		{
+			vsp = -SPD_JUMP;
+			can_jump = 0; 
+		}
+		grounded = false;
+		can_squish = true; 
+		squash_and_stretch(0.8,0.15,1.3,0.15);
+		dust(); 
+	}
+	else if (grounded)
+	{
+		can_squish = false;
 	}
 	
 	vsp += SPD_GRAVITY
@@ -163,8 +191,14 @@ function collision()
 			}
 		}
 		check_inclinedecline(y);
+		//incline/decline walk friction "slowdown" 
+		if (incline_check) and (!is_sliding) hsp *= INCLINE_WALK_SLOWDOWN;
+		if (!incline_check) and (!is_sliding) hsp = hsp; 
+		if (decline_check) and (!is_sliding) hsp *= DECLINE_WALK_SLOWDOWN; 
+		if (!incline_check) and (!is_sliding) hsp = hsp; 
 		can_jump = COYOTE_TIME;
 	} 
+	sprite_angle();
 }
 function animation_initialize()
 {
@@ -184,7 +218,57 @@ function animation_initialize()
 
 	//animation
 	// frameSpeed = 1;
-	facing = 1;	
+	facing = 1;
+
+}
+function sprite_angle()
+{
+	//no squish if !can_squish
+	if (!can_squish)
+	{
+		xScale = 1;
+		yScale = 1;
+	}	
+	
+	//changes angle of sprite on decling slopes
+	if (is_sliding and state == player.slide) or (is_boosting and state == player.boost) 
+	{
+		var pos = tilemap_get_at_pixel(tilemap,x,y);
+		if (decline_check) 
+		{
+	
+			if (hsp <= 0)
+			{
+				angle = 45;
+			}
+			if (hsp >= 0) 
+			{
+				angle = -45;
+			}
+		}
+		else if (incline_check) 
+		{
+			if (hsp <= 0)
+			{
+				angle = -45;
+			}
+			if (hsp >= 0) 
+			{
+				angle = 45;
+			}
+		}
+		else if (pos == 2) or (pos == 3)
+		{
+			angle = angle; 
+		}
+		else
+		{
+			angle = 0;
+		}
+	}
+	
+	if (sprite = s_player) angle = 0; 
+
 }
 function in_floor(tilemap_id,x_pos,y_pos)
 {

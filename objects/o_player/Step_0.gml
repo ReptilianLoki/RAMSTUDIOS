@@ -30,5 +30,9 @@ switch (state)
 	case player.slide:
 	player_slide();
 	break;
+	
+	case player.boost: 
+	player_boost();
+	break;
 }
 #endregion

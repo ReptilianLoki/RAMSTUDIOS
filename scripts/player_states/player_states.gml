@@ -1,5 +1,8 @@
 function player_idle()
 {
+	//sprite update
+	sprite = s_player;
+	
 	//check moving state
 	if (left or right)
 	{
@@ -17,6 +20,8 @@ function player_idle()
 }
 function player_walk()
 {
+	//sprite update
+	sprite = s_player;
 	
 	//check idle state
 	if (hsp == 0 or !left and !right)
@@ -41,6 +46,9 @@ function player_walk()
 }
 function player_jump()
 {	
+	//sprite update
+	sprite = s_player;
+	
 	//check idle state
 	if (hsp == 0 or !left and !right)
 	{
@@ -64,11 +72,13 @@ function player_jump()
 }
 function player_slide()
 {
-
+	//update sprite index
+	sprite = s_player_slide; 
+	
 	//Can't slide unless we are moving near max speed.
 	if (abs(hsp) > (MAX_WALK - 1))
 	{
-		if (!is_sliding) // and (!incline_check)
+		if (!is_sliding)
 		{
 			can_slide = true;
 		}
@@ -87,40 +97,68 @@ function player_slide()
 	//Check if we are holding down the slide button.
 	if (can_slide and slide)
 	{
-		boost_timer = 15; 
 		is_sliding = true;
 		can_slide = false;
 		hsp = MAX_WALK * 1.8 * sign(hsp);
-		state = player.slide;
 		screen_shake(SCREEN_MAGNITUDE,SCREEN_FRAMES);
 		dust(); 
 	}
 	
-	//check if we are sliding but just released the slide key.
-	if (is_sliding and !slide)
+	//check idle state
+	if (hsp == 0) and (!left and !right)
 	{
-		is_sliding = false;
+		state = player.idle;
 	}
 	
-	//check if we are boosting but just released the boost key.
-	if (is_boosting and !boost_key_check)
+	//check moving state
+	if (left or right) and (!slide)
 	{
-		is_boosting = false; 
+		state = player.moving;
 	}
 	
-	//slide boost
-	if (is_sliding and boost and grounded and (global.coin_count >= 3))
+	//check boost state
+	if (can_boost) and (boost) 
 	{
-		boost_timer = BOOST_TIMER; 
+		state = player.boost; 
+	}
+	
+	movement(); 
+	collision(); 
+}
+function player_boost()
+{
+	//update sprite
+	sprite = s_player_boost; 
+	
+	//Cannot immediatly slide after direction change
+	if ((left and hsp > 0) or (right and hsp < 0))
+	{
+		can_slide = false; 
+	}
+
+	//boost
+	if (can_boost) and (grounded) and (global.coin_count >= 3) 
+	{
 		is_boosting = true; 
-		// can_boost = false;
 		global.coin_count -= 3; 
 		hsp = MAX_WALK * BOOST_SPD * sign(hsp);
 		screen_shake(SCREEN_MAGNITUDE*2,SCREEN_FRAMES*2);
 		dust();
 	}
+
+	//check idle state
+	if (hsp == 0) and (!left and !right)
+	{
+		state = player.idle;
+	}
+	
+	//check moving state
+	if (left or right) and (!slide)
+	{
+		state = player.moving;
+	}
 	
 	movement(); 
-	collision(); 
+	collision();
 }
 

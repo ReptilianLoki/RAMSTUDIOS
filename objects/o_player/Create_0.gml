@@ -11,41 +11,40 @@
 
 //friction macros
 #macro FRICTION 0.5 
-#macro SLIDE_FRICTION 0.022 
-#macro INCLINE_SLIDE_FRICTION 0.1
-#macro INCLINE_WALK_FRICTION 0.8
-#macro DECLINE_SLIDE_FRICTION 0.005
-#macro DECLINE_WALK_FRICTION 0.55
-#macro DECLINE_MOMENTUM 0.010
-#macro INCLINE_MOMENTUM 0.010
+#macro SLIDE_FRICTION 0.015
+#macro INCLINE_SLIDE_FRICTION 0.2
+#macro DECLINE_SLIDE_FRICTION 0.004
+#macro DECLINE_MOMENTUM 0.013
+#macro INCLINE_MOMENTUM 0.10
+#macro INCLINE_WALK_SLOWDOWN .1
+#macro DECLINE_WALK_SLOWDOWN .9
 
 //screenshake
 #macro SCREEN_MAGNITUDE 2
 #macro SCREEN_FRAMES 5
 
 //timers
-#macro BOOST_TIMER 0
 #macro COYOTE_TIME 4
 
 animation_initialize(); 
 
 hsp = 0;
 vsp = 0;
-current_friction = FRICTION;
-is_sliding = false;
-can_slide = false;
-can_squish = false;
-//grv_final = SPD_GRAVITY;
-prev_y = y;
 hsp_fraction = 0;
 vsp_fraction = 0;
-// can_boost = false;
-can_jump = 0; 
-boost_timer = 0; 
+current_friction = FRICTION;
+can_squish = false;
+can_jump = 0;
+can_slide = false;
+can_boost = false; 
+boost_jump_buffer = 1; 
 is_boosting = false; 
+is_sliding = false;
+prev_y = y;
 decline_check = false;
 incline_check = false;
 tilemap = layer_tilemap_get_id("Collision");
+//grv_final = SPD_GRAVITY;
 
 
 enum player
@@ -53,7 +52,8 @@ enum player
 	idle, 
 	moving,
 	jump,
-	slide
+	slide,
+	boost
 }
 
 state = player.idle;
