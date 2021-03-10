@@ -9,6 +9,12 @@ function player_idle()
 		state = player.moving;
 	}
 	
+	//check slide state
+	if (slide) and (hsp > MAX_WALK) 
+	{
+		state = player.slide; 
+	}
+	
 	//check jump state
 	if (jump) 
 	{
@@ -86,8 +92,8 @@ function player_slide()
 		{
 			can_slide = false;
 		}
-	}
-	
+	} 
+
 	//Cannot immediatly slide after direction change
 	if ((left and hsp > 0) or (right and hsp < 0))
 	{
@@ -104,6 +110,15 @@ function player_slide()
 		dust(); 
 	}
 	
+	if (global.coin_count >= 3)
+	{
+		can_boost = true;
+	}
+	else
+	{
+		can_boost = false; 
+	}
+
 	//check idle state
 	if (hsp == 0) and (!left and !right)
 	{
@@ -116,8 +131,9 @@ function player_slide()
 		state = player.moving;
 	}
 	
+	
 	//check boost state
-	if (can_boost) and (boost) 
+	if (boost) and (can_boost)
 	{
 		state = player.boost; 
 	}
@@ -133,15 +149,16 @@ function player_boost()
 	//Cannot immediatly slide after direction change
 	if ((left and hsp > 0) or (right and hsp < 0))
 	{
-		can_slide = false; 
+		can_boost = false; 
 	}
 
 	//boost
-	if (can_boost) and (grounded) and (global.coin_count >= 3) 
+	if (grounded) and (can_boost) 
 	{
 		is_boosting = true; 
+		can_boost = false; 
 		global.coin_count -= 3; 
-		hsp = MAX_WALK * BOOST_SPD * sign(hsp);
+		hsp = MAX_SLIDE * BOOST_SPD * sign(hsp);
 		screen_shake(SCREEN_MAGNITUDE*2,SCREEN_FRAMES*2);
 		dust();
 	}

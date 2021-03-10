@@ -1,5 +1,7 @@
 function movement()
 {	
+	sprite_angle();
+	
 	//can_jump timer
 	can_jump--;
 	
@@ -21,7 +23,7 @@ function movement()
 		if (incline_check) 
 		{
 			current_friction = INCLINE_SLIDE_FRICTION
-			hsp = hsp - INCLINE_MOMENTUM
+			hsp = hsp - INCLINE_MOMENTUM 
 		}
 	}
 	else if (!is_sliding) or (!is_boosting)
@@ -65,31 +67,18 @@ function movement()
 	{
 		is_sliding = false;
 	}
-	
+
 	//check if we are boosting but just released the boost key.
 	if (is_boosting and !boost_key_check)
 	{
 		is_boosting = false; 
-	}
-	
-	//check coin count to see if we can boost
-	if (global.coin_count >= 3) 
-	{
-		//can't boost by holding the key down 
-		if (!is_boosting)
-		{
-			can_boost = true;
-		}
-	}
-	else
-	{
-		can_boost = false; 
+
 	}
 	
 	//jump
 	if (jump) and (can_jump > 0)
 	{
-		if (is_sliding) and (is_boosting)
+		if (is_boosting)
 		{
 			//can't get boost jump unless near max slide speed
 			if (abs(hsp) > (MAX_SLIDE - boost_jump_buffer))
@@ -198,7 +187,7 @@ function collision()
 		if (!incline_check) and (!is_sliding) hsp = hsp; 
 		can_jump = COYOTE_TIME;
 	} 
-	sprite_angle();
+
 }
 function animation_initialize()
 {
@@ -231,7 +220,7 @@ function sprite_angle()
 	}	
 	
 	//changes angle of sprite on decling slopes
-	if (is_sliding and state == player.slide) or (is_boosting and state == player.boost) 
+	if (sprite != s_player)
 	{
 		var pos = tilemap_get_at_pixel(tilemap,x,y);
 		if (decline_check) 
@@ -266,8 +255,11 @@ function sprite_angle()
 			angle = 0;
 		}
 	}
+	else
+	{
+		angle = 0; 
+	}
 	
-	if (sprite = s_player) angle = 0; 
 
 }
 function in_floor(tilemap_id,x_pos,y_pos)

@@ -2,9 +2,9 @@
 right = keyboard_check_direct(vk_right);
 left = keyboard_check_direct(vk_left);
 jump = keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord("W"));
-slide = keyboard_check(vk_space); 
+slide = keyboard_check_direct(vk_space); 
 boost = keyboard_check_pressed(vk_shift); 
-boost_key_check = keyboard_check(vk_shift); 
+boost_key_check = keyboard_check_direct(vk_shift); 
 
 //for collision
 grounded = (in_floor(tilemap,x,bbox_bottom+1) >= 0);
