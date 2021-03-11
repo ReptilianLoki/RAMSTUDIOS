@@ -131,7 +131,6 @@ function player_slide()
 		state = player.moving;
 	}
 	
-	
 	//check boost state
 	if (boost) and (can_boost)
 	{

@@ -182,9 +182,7 @@ function collision()
 		check_inclinedecline(y);
 		//incline/decline walk friction "slowdown" 
 		if (incline_check) and (!is_sliding) hsp *= INCLINE_WALK_SLOWDOWN;
-		if (!incline_check) and (!is_sliding) hsp = hsp; 
 		if (decline_check) and (!is_sliding) hsp *= DECLINE_WALK_SLOWDOWN; 
-		if (!incline_check) and (!is_sliding) hsp = hsp; 
 		can_jump = COYOTE_TIME;
 	} 
 

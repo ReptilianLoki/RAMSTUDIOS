@@ -1,1 +1,1 @@
-room_restart(); 
+transition(TRANS_MODE.RESTART, Room1); 

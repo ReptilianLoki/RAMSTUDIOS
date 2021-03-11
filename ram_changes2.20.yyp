@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"o_dust","path":"objects/o_dust/o_dust.yy",},"order":1,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":2,},
     {"id":{"name":"s_dust","path":"sprites/s_dust/s_dust.yy",},"order":4,},
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":0,},
     {"id":{"name":"basics","path":"scripts/basics/basics.yy",},"order":0,},
@@ -36,6 +37,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"initialize","path":"rooms/initialize/initialize.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

@@ -24,7 +24,7 @@
 #macro SCREEN_FRAMES 5
 
 //timers
-#macro COYOTE_TIME 6
+#macro COYOTE_TIME 4
 
 animation_initialize(); 
 
