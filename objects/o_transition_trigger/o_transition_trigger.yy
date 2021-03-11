@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_death",
-    "path": "sprites/s_death/s_death.yy",
+    "name": "s_transition",
+    "path": "sprites/s_transition/s_transition.yy",
   },
   "solid": false,
   "visible": false,
@@ -21,7 +21,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player","path":"objects/o_player/o_player.yy",},"parent":{"name":"o_death","path":"objects/o_death/o_death.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player","path":"objects/o_player/o_player.yy",},"parent":{"name":"o_transition_trigger","path":"objects/o_transition_trigger/o_transition_trigger.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,7 +30,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_death",
+  "name": "o_transition_trigger",
   "tags": [],
   "resourceType": "GMObject",
 }

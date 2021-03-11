@@ -1,9 +1,10 @@
 {
   "resources": [
     {"id":{"name":"o_dust","path":"objects/o_dust/o_dust.yy",},"order":1,},
-    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":2,},
     {"id":{"name":"s_dust","path":"sprites/s_dust/s_dust.yy",},"order":4,},
+    {"id":{"name":"s_transition","path":"sprites/s_transition/s_transition.yy",},"order":7,},
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":0,},
+    {"id":{"name":"o_transition_trigger","path":"objects/o_transition_trigger/o_transition_trigger.yy",},"order":8,},
     {"id":{"name":"basics","path":"scripts/basics/basics.yy",},"order":0,},
     {"id":{"name":"s_player_boost","path":"sprites/s_player_boost/s_player_boost.yy",},"order":3,},
     {"id":{"name":"initialize","path":"rooms/initialize/initialize.yy",},"order":0,},
@@ -14,6 +15,7 @@
     {"id":{"name":"o_initialize","path":"objects/o_initialize/o_initialize.yy",},"order":5,},
     {"id":{"name":"player_states","path":"scripts/player_states/player_states.yy",},"order":1,},
     {"id":{"name":"s_player","path":"sprites/s_player/s_player.yy",},"order":1,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":3,},
     {"id":{"name":"o_camera","path":"objects/o_camera/o_camera.yy",},"order":3,},
     {"id":{"name":"o_transition","path":"objects/o_transition/o_transition.yy",},"order":4,},
     {"id":{"name":"s_coin","path":"sprites/s_coin/s_coin.yy",},"order":5,},
