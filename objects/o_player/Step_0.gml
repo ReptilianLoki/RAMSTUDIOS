@@ -12,6 +12,9 @@ grounded = (in_floor(tilemap,x,bbox_bottom+1) >= 0);
 //for decline/incline checks
 prev_y = y;
 
+//rainbow shader _time variable
+_time += 1 / room_speed;
+
 #region State Machine
 switch (state)
 {
@@ -34,5 +37,9 @@ switch (state)
 	case player.boost: 
 	player_boost();
 	break;
+	
+	case player.death:
+	player_death(); 
+	break; 
 }
 #endregion

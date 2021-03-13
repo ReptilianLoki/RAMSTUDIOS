@@ -4,11 +4,11 @@ if (mode != TRANS_MODE.OFF)
 {
 	if (mode == TRANS_MODE.INTRO)
 	{
-		percent = max(0,percent - max((percent/10),0.005));
+		percent = max(0,percent - max((percent/10),transition_rate));
 	}
 	else
 	{
-		percent = min(1.05,percent + max(((1 - percent)/10),0.005));
+		percent = min(1.05,percent + max(((1 - percent)/10),transition_rate));
 	}
 
 	if (percent == 1.05) || (percent == 0)

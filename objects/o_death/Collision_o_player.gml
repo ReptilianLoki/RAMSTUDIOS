@@ -1,1 +1,3 @@
-transition(TRANS_MODE.RESTART, Room1); 
+state = player.death;
+hsp = 0;
+vsp = 0; 

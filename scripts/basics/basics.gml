@@ -17,13 +17,27 @@ function movement()
 		if (decline_check)
 		{
 			current_friction = DECLINE_SLIDE_FRICTION
-			hsp = hsp + DECLINE_MOMENTUM
-		}
-		
+			if (hsp > 0)
+			{
+				hsp = hsp + DECLINE_MOMENTUM
+			}
+			else if (hsp < 0) 
+			{	
+				hsp = hsp - DECLINE_MOMENTUM
+			}
+		} 
 		if (incline_check) 
 		{
 			current_friction = INCLINE_SLIDE_FRICTION
 			hsp = hsp - INCLINE_MOMENTUM 
+			if (hsp > 0)
+			{
+				hsp = hsp - INCLINE_MOMENTUM
+			}
+			else if (hsp < 0) 
+			{	
+				hsp = hsp + INCLINE_MOMENTUM
+			}
 		}
 	}
 	else if (!is_sliding) or (!is_boosting)
@@ -106,7 +120,7 @@ function movement()
 	{
 		can_squish = false;
 	}
-	
+
 	vsp += SPD_GRAVITY
 	
 }
