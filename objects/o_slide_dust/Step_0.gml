@@ -1,6 +1,6 @@
-x+=hsp;
+x+=hsp; 
 y+=vsp;
 
-hsp*=0.9
-vsp*=0.9
+hsp*=0.5
+vsp*=0.1
 

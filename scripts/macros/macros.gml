@@ -25,5 +25,6 @@ function macros()
 	
 	//timers
 	#macro COYOTE_TIME 4
-	#macro DEATH_TIMER 45
+	#macro DEATH_TIMER 35
+	#macro ENEMY_WALK_TIMER 75
 }

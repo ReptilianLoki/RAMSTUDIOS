@@ -111,10 +111,10 @@ function movement()
 			vsp = -SPD_JUMP;
 			can_jump = 0; 
 		}
+		if (grounded) dust(); 
 		grounded = false;
 		can_squish = true; 
 		squash_and_stretch(0.8,0.15,1.3,0.15);
-		dust(); 
 	}
 	else if (grounded)
 	{
@@ -195,8 +195,8 @@ function collision()
 		}
 		check_inclinedecline(y);
 		//incline/decline walk friction "slowdown" 
-		if (incline_check) and (!is_sliding) hsp *= INCLINE_WALK_SLOWDOWN;
-		if (decline_check) and (!is_sliding) hsp *= DECLINE_WALK_SLOWDOWN; 
+		if (incline_check) and (!o_player.is_sliding) hsp *= INCLINE_WALK_SLOWDOWN;
+		if (decline_check) and (!o_player.is_sliding) hsp *= DECLINE_WALK_SLOWDOWN; 
 		can_jump = COYOTE_TIME;
 	} 
 
