@@ -14,3 +14,8 @@ for (var i = 0; i <= tiles; i++)
 	tilemap_set(tilemapid, i, i, 0);
 	show_debug_message("Tile " + string(i) + " set");
 }
+
+//persistent globals
+global.player_health_max = 4; 
+global.player_health = 4;
+global.coin_count = 0;

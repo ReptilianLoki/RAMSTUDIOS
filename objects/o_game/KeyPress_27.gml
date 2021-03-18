@@ -1,2 +1,2 @@
-/// @description End Game
+/// @description Resart Game
 game_end();

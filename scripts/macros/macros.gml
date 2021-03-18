@@ -27,4 +27,5 @@ function macros()
 	#macro COYOTE_TIME 4
 	#macro DEATH_TIMER 35
 	#macro ENEMY_WALK_TIMER 75
+	#macro DEATH_SHADER_TIMER 10
 }

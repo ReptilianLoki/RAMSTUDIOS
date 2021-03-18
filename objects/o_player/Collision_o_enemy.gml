@@ -1,10 +1,8 @@
 if (state != player.slide) and (state != player.boost)
 {
-	if (abs(hsp) >= MAX_SLIDE)
+	if (state != player.death)
 	{
-		hsp = 0; 
-		vsp = 0; 
-		death_timer = DEATH_TIMER; 
+		player_death_settings(); 
 		state = player.death;
 	}
 }

@@ -15,11 +15,13 @@ can_boost = false;
 boost_jump_buffer = 1; 
 is_boosting = false; 
 is_sliding = false;
+is_jumping = false; 
 prev_y = y;
 decline_check = false;
 incline_check = false;
 death_timer = 0; 
 tilemap = layer_tilemap_get_id("Collision");
+flash = 0; 
 
 enum player
 {

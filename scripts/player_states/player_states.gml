@@ -25,11 +25,8 @@ function player_idle()
 	if (place_meeting(x,y,o_death))
 	{
 		state = player.death; 
-		death_timer = DEATH_TIMER; 
-		hsp = 0; 
-		vsp = 0; 
+		player_death_settings(); 
 	}
-	
 	
 	movement();
 	collision();
@@ -61,11 +58,8 @@ function player_walk()
 	if (place_meeting(x,y,o_death))
 	{
 		state = player.death; 
-		death_timer = DEATH_TIMER; 
-		hsp = 0; 
-		vsp = 0; 
+	    player_death_settings(); 
 	}
-	
 	
 	movement();
 	collision();
@@ -97,9 +91,7 @@ function player_jump()
 	if (place_meeting(x,y,o_death))
 	{
 		state = player.death; 
-		death_timer = DEATH_TIMER;
-		hsp = 0; 
-		vsp = 0; 
+	    player_death_settings(); 
 	}
 	
 	movement();
@@ -175,9 +167,7 @@ function player_slide()
 	if (place_meeting(x,y,o_death))
 	{
 		state = player.death; 
-		death_timer = DEATH_TIMER; 
-		hsp = 0; 
-		vsp = 0; 
+		player_death_settings(); 
 	}
 	
 	movement(); 
@@ -226,9 +216,7 @@ function player_boost()
 	if (place_meeting(x,y,o_death))
 	{
 		state = player.death; 
-		death_timer = DEATH_TIMER; 
-		hsp = 0; 
-		vsp = 0; 
+		player_death_settings(); 
 	}
 	
 	movement(); 
@@ -254,6 +242,7 @@ function player_death()
 	{	
 		transition(TRANS_MODE.GOTO, return_room);
 		death_timer = 0; 
+		if (global.player_health == 0) game_restart();
 	}
 }
 

@@ -7,13 +7,13 @@ if instance_exists(follow_object)
 	if (o_player.hsp > 0) 
 	{
 		//follow the player x
-		xTo = follow_object.x + 75; 
+		xTo = follow_object.x + 150; 
 		//update camera to player x position with rate
 		x += (xTo - x) / 18; 
 		//if we're decling, adjust y position to decline 
 		if (o_player.decline_check) 
 		{
-			yTo = follow_object.y + 25;
+			yTo = follow_object.y + 100;
 			y += (yTo - y) / 22;
 		}
 		//if we're not declining, update y position without adjustments
@@ -26,13 +26,13 @@ if instance_exists(follow_object)
 	else if (o_player.hsp < 0)
 	{
 		//follow the player x
-		xTo = follow_object.x - 75; 
+		xTo = follow_object.x - 150; 
 		//update camera to player x position with rate
 		x += (xTo - x) / 18; 
 		//if we're inclining, adjust y position for incline
 		if (o_player.incline_check) 
 		{
-			yTo = follow_object.y - 25;
+			yTo = follow_object.y - 75;
 			y += (yTo - y) / 22;
 		}
 		//if we're not inclining, update y position without adjustments
@@ -45,10 +45,14 @@ if instance_exists(follow_object)
 	//update the camera to our position when we stop moving
 	else if (o_player.hsp == 0)
 	{
+		xTo = follow_object.x + 75; 
+		yTo = follow_object.y;
 		x += (xTo - x) / 18; 
 		y += (yTo - y) / 18;
 	}
 }
+
+
 
 //keeps camera center in the room
 x = clamp(x,view_width_half+buff,room_width-view_width_half-buff);
