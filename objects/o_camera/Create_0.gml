@@ -5,6 +5,9 @@ view_width_half = camera_get_view_width(cam) * 0.5;
 view_height_half = camera_get_view_height(cam) * 0.55;
 xTo = xstart;
 yTo = ystart; 
+facing = 0;
+//camera_up = o_player.camera_up;
+//camera_down = o_player.camera_down;
 
 shake_length = 0; 
 shake_magnitude = 0; 
