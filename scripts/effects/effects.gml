@@ -37,11 +37,11 @@ function rainbow_shader_setup()
 	_uniBrightness = shader_get_uniform(rainbow_shader, "u_brightness");
 	_uniMix        = shader_get_uniform(rainbow_shader, "u_mix");
 	_time  = 0;		
-	_speed = 3.0;
+	_speed = 2.0;
 	_section = 0.5;
-	_saturation = 1;
+	_saturation = 0.8;
 	_brightness = 1;
-	_mix = 0.7;
+	_mix = 0.7
 }
 function screen_shake(magnitude,frames)
 {
