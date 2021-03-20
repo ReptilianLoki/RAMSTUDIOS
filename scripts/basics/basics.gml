@@ -408,5 +408,6 @@ function player_death_settings()
 		hsp = 0; 
 		vsp = 0; 
 		global.player_health--; 
+		global.coin_count = 0; 
 		screen_shake(2,40);
 }
