@@ -4,7 +4,7 @@ function movement()
 	
 	//can_jump timer
 	can_jump--;
-	
+
 	//Calculate Movement
 	move = (right - left) //* SPD_WALK
 	
