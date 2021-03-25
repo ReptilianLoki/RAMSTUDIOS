@@ -6,11 +6,11 @@ if (!global.game_paused)
 	//for collision
 	grounded = (in_floor(tilemap,x,bbox_bottom+1) >= 0);
 	
-	//apply enemy collision
-	enemy_collision(); 
+	//apply gravity
+	enemy_vsp += SPD_GRAVITY; 
 	
-	//applies gravity
-	vsp += SPD_GRAVITY
+	//apply collision
+	enemy_collision(); 
 	
 	// y setup 
 	prev_y = y;

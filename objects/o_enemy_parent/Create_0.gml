@@ -1,5 +1,5 @@
 /// @description  Variables, Tilemap
-hsp_fraction = 0;
-vsp_fraction = 0;
-current_friction = FRICTION;
+enemy_hsp_fraction = 0;
+enemy_vsp_fraction = 0;
 tilemap = layer_tilemap_get_id("Collision");
+spider_jumping = false;

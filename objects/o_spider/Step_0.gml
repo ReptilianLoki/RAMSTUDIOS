@@ -12,10 +12,16 @@ if (distance < sight_threshold)
 	//when it hits 0, JUMP! 
 	if (spider_jump_timer = 0) and (grounded)
 	{
+		//jump check
+		spider_jumping = true;
 		//jump
-		vsp = -15;
+		enemy_vsp = -5;
 		//reset timer
 		spider_jump_timer = SPIDER_JUMP_FREQ;
+	}
+	else
+	{
+		spider_jumping = false;
 	}
 }
 
