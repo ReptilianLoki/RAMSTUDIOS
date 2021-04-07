@@ -16,6 +16,7 @@ function movement()
 	{
 		current_friction = SLIDE_FRICTION
 		if (decline_check)
+		
 		{
 			current_friction = DECLINE_SLIDE_FRICTION
 			if (hsp > 0)
