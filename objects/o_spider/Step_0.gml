@@ -3,8 +3,13 @@
 //inherit parent variables
 event_inherited();
 
+//apply friction
+enemy_friction(); 
+	
 var distance = distance_to_object(o_player);
 var spider_lunge = 0.05;
+var max_spider_speed = 3;
+
 if (distance < sight_threshold)
 {
 	//reduce timer
@@ -22,7 +27,19 @@ if (distance < sight_threshold)
 	}
 	else if (!grounded)
 	{
+		//jump check
 		spider_jumping = false;
+		//apply lunge
 		enemy_hsp = (o_player.x - x) * spider_lunge;
+	}
+	
+	//limit spider speed
+	if (enemy_hsp >= max_spider_speed)
+	{
+		enemy_hsp = max_spider_speed;
+	}
+	else if (enemy_hsp <= -max_spider_speed)
+	{
+		enemy_hsp = -max_spider_speed;
 	}
 }

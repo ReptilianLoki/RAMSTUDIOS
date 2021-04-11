@@ -1,1 +1,1 @@
-effect_create_below(ef_rain,x,y,10,c_blue); 
+effect_create_below(ef_rain,x,y,10,c_grey); 

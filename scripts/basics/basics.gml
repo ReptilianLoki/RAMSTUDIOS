@@ -1,4 +1,3 @@
-
 function movement()
 {	
 	sprite_angle();
@@ -16,7 +15,6 @@ function movement()
 	{
 		current_friction = SLIDE_FRICTION
 		if (decline_check)
-		
 		{
 			current_friction = DECLINE_SLIDE_FRICTION
 			if (hsp > 0)
@@ -411,4 +409,32 @@ function player_death_settings()
 		global.player_health--; 
 		global.coin_count = 0; 
 		screen_shake(2,40);
+}
+function enemy_friction()
+{
+	check_inclinedecline(y);
+	
+	current_friction = ENEMY_FRICTION
+	
+	if (decline_check)
+	{
+		current_friction = DECLINE_ENEMY_FRICTION
+	}
+	else
+	{
+		current_friction = ENEMY_FRICTION
+	}
+	
+	if (incline_check)
+	{
+		current_friction = INCLINE_ENEMY_FRICTION
+	}
+	else
+	{
+		current_friction = ENEMY_FRICTION
+	}
+	
+	//apply friction
+	enemy_hsp -= min(abs(enemy_hsp),current_friction) * sign(enemy_hsp);
+	
 }

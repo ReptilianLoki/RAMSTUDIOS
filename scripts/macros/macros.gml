@@ -9,7 +9,7 @@ function macros()
 	#macro BOOST_JUMP 6
 	#macro BOOST_SPD 2
 	
-	//friction macros
+	//player friction macros
 	#macro FRICTION 0.6
 	#macro SLIDE_FRICTION 0.015
 	#macro INCLINE_SLIDE_FRICTION 0.17
@@ -18,6 +18,11 @@ function macros()
 	#macro INCLINE_MOMENTUM 0
 	#macro INCLINE_WALK_SLOWDOWN .1
 	#macro DECLINE_WALK_SLOWDOWN .9
+	
+	//enemy friction macros
+	#macro ENEMY_FRICTION 0.075
+	#macro INCLINE_ENEMY_FRICTION 0.06
+	#macro DECLINE_ENEMY_FRICTION 0.0006
 	
 	//screenshake
 	#macro SCREEN_MAGNITUDE 2
@@ -28,5 +33,5 @@ function macros()
 	#macro DEATH_TIMER 35
 	#macro ENEMY_WALK_TIMER 75
 	#macro DEATH_SHADER_TIMER 10
-	#macro SPIDER_JUMP_FREQ 100
+	#macro SPIDER_JUMP_FREQ 70
 }
