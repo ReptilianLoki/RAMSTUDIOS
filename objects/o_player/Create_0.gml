@@ -22,6 +22,7 @@ incline_check = false;
 death_timer = 0; 
 tilemap = layer_tilemap_get_id("Collision");
 flash = 0; 
+player_half_height = sprite_get_height(o_player)/2; 
 
 enum player
 {

@@ -2,6 +2,7 @@
 
 //inherit parent variables
 event_inherited();
+animation_initialize();
 
 enemy_hsp = 0;
 enemy_vsp = 0; 
