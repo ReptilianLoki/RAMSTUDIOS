@@ -4,3 +4,4 @@ enemy_vsp_fraction = 0;
 tilemap = layer_tilemap_get_id("Collision");
 spider_jumping = false;
 prev_y = y; 
+can_collide = true; 

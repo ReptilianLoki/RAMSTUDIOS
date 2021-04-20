@@ -2,7 +2,7 @@ function movement()
 {	
 	sprite_angle();
 	
-	//can_jump timerr
+	//can_jump timer
 	can_jump--;
 
 	//Calculate Movement
