@@ -20,7 +20,7 @@ function macros()
 	#macro DECLINE_WALK_SLOWDOWN .9
 	
 	//enemy friction macros
-	#macro ENEMY_FRICTION 0.075
+	#macro ENEMY_FRICTION 0.15
 	#macro INCLINE_ENEMY_FRICTION 0.06
 	#macro DECLINE_ENEMY_FRICTION 0.0006
 	

@@ -29,17 +29,19 @@ if (distance < sight_threshold)
 	spider_jump_timer -= 1;
 	
 	//when it hits 0, JUMP! 
-	if (spider_jump_timer <= 0) and (grounded)
+	if (spider_jump_timer <= 0) and (grounded) 
 	{
+		
 		//jump check
 		spider_jumping = true;
 		//jump
-		if (future_pos_check) and (!player_below_check)
+		if (future_pos_check) //and (!player_below_check)
 		{
 			enemy_vsp = -7;
 		}
 		//reset timer
 		spider_jump_timer = SPIDER_JUMP_FREQ;
+		player_pos = o_player.x;
 	}
 	else if (!grounded)
 	{
@@ -47,7 +49,7 @@ if (distance < sight_threshold)
 		spider_jumping = false;
 	
 		//apply lunge
-		enemy_hsp = (o_player.x - x) * spider_lunge; 
+		enemy_hsp = (player_pos - x) * spider_lunge;
 	}
 	
 	//limit spider speed
@@ -60,4 +62,3 @@ if (distance < sight_threshold)
 		enemy_hsp = -max_spider_speed;
 	}
 }
-
