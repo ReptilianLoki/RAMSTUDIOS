@@ -35,10 +35,15 @@ if (distance < sight_threshold)
 		//jump check
 		spider_jumping = true;
 		//jump
-		if (future_pos_check) //and (!player_below_check)
+		if (future_pos_check)
 		{
 			enemy_vsp = -7;
 		}
+		else if (!future_pos_check) and (player_below_check)
+		{
+			enemy_vsp = -7; 
+		}
+		
 		//reset timer
 		spider_jump_timer = SPIDER_JUMP_FREQ;
 		player_pos = o_player.x;
