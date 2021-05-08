@@ -13,5 +13,6 @@ player_pos_y = 0;
 max_bat_speed = 5;
 spider_jumping = false; 
 bat_move = false;
+dir = 0
 
 

@@ -12,13 +12,12 @@ if (!global.game_paused)
 	// y setup 
 	prev_y = y;
 
-	var dir = point_direction(x,y,player_pos_x,player_pos_y);
+
 	var distance = point_distance(x,y,o_player.x,o_player.y);
 	
 	if (distance < sight_threshold) and (!bat_move)
 	{
-		player_pos_x = o_player.x + (o_player.hsp * 18);
-		player_pos_y = o_player.y;
+		dir = point_direction(x,y,o_player.x + (o_player.hsp * 18),o_player.y);
 		bat_move = true; 
 	}
 	
