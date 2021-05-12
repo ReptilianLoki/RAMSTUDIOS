@@ -34,4 +34,5 @@ function macros()
 	#macro ENEMY_WALK_TIMER 75
 	#macro DEATH_SHADER_TIMER 10
 	#macro SPIDER_JUMP_FREQ 70
+	#macro BAT_TIMER 100
 }

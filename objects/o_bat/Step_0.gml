@@ -6,11 +6,6 @@ if (!global.game_paused)
 	//for collision
 	grounded_bat = (in_floor(tilemap,x,bbox_bottom+2) >= 0);
 	
-	if(count_down <= 0)
-	{
-		grounded_bat = false;
-	}
-	
 	//apply collision
 	enemy_collision(); 
 	
@@ -19,39 +14,72 @@ if (!global.game_paused)
 
 	var distance = point_distance(x,y,o_player.x,o_player.y);
 	
-	if (distance < sight_threshold) and (!bat_move)
+	var player_above = false;
+	
+	if (o_player.bbox_top < bbox_bottom) 
 	{
-		dir = point_direction(x,y,o_player.x + (o_player.hsp * 18),o_player.y);
-		bat_move = true; 
+		player_above = true; 
+	}
+	else
+	{
+		player_above = false; 
 	}
 	
-	if (bat_move)
+	if (big_bat_timer <= 0)
 	{
-		enemy_hsp = lengthdir_x(max_bat_speed, dir);
-		enemy_vsp = lengthdir_y(max_bat_speed, dir);
-	}
-	
-	if (grounded_bat)
-	{
-		if(count_down > 0)
+		if (distance < sight_threshold) and (!bat_activated) and (!player_above)
 		{
-			enemy_hsp = 0; 
-			enemy_vsp = 0;
+			bat_activated = true; 
+			
+			if (distance > sight_threshold)
+			{
+				bat_activated = false; 
+			}
 		}
-		//enemy_hsp = 0; 
-		//enemy_vsp = 0;
-		count_down--;
+		
+		if (bat_activated) and (!bat_move)
+		{
+			if (o_player.grounded)
+			{
+				dir = point_direction(x,y,o_player.x + (o_player.hsp * 18),o_player.y);
+				bat_activated = true;
+				bat_move = true; 
+			}
+		}
+		
+		
+		if (bat_move)
+		{
+			enemy_hsp = lengthdir_x(max_bat_speed, dir);
+			enemy_vsp = lengthdir_y(max_bat_speed, dir);
+		}
+		
+		if (grounded_bat)
+		{
+			if (count_down > 0)
+			{
+				enemy_hsp = 0; 
+				enemy_vsp = 0;
+			}
+			count_down--;
+		}
+		
+		if (count_down <= 0)
+		{
+			grounded_bat = false; 
+			dir = point_direction(x,y,bat_origin_x,bat_origin_y);
+			if (x == bat_origin_x) or (y == bat_origin_y)
+			{
+				enemy_vsp = 0;
+				enemy_hsp = 0;
+				bat_move = false;
+				bat_activated = true; 
+				count_down = bat_timer;
+				big_bat_timer = BAT_TIMER; 
+			}
+		}
 	}
 	
-	if(count_down <= 0)
-	{
-		dir = point_direction(x,y,bat_origin_x ,bat_origin_y);
-	}
-	
-	if(x == bat_origin_x and y == bat_origin_y and bat_move)
-	{
-		count_down = bat_timer;
-		bat_move = false;
-	}
+	big_bat_timer--;
 	
 }
