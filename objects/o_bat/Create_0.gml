@@ -20,5 +20,7 @@ can_collide = false;
 count_down = bat_timer;
 big_bat_timer = BAT_TIMER; 
 bat_activated = false; 
-
+//h_buff = 18;
+player_speed = 0;
+player_max_speed = 20;
 

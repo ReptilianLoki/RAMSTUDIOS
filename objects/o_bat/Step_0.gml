@@ -48,7 +48,16 @@ if (!global.game_paused)
 		{
 			if (o_player.grounded)
 			{
-				dir = point_direction(x,y,o_player.x + (o_player.hsp * 18),o_player.y);
+				if (o_player.hsp > player_max_speed)
+				{
+					player_speed = player_max_speed;
+				}
+				else
+				{
+					player_speed = o_player.hsp;
+				}
+				
+				dir = point_direction(x,y,o_player.x + (player_speed * h_buff),o_player.y);
 				bat_activated = true;
 				bat_move = true; 
 			}
