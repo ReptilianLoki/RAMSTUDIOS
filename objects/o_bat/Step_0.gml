@@ -12,7 +12,7 @@ if (!global.game_paused)
 	// y setup 
 	prev_y = y;
 
-	var distance = point_distance(x,y,o_player.x,o_player.y);
+	var player_enemy_dist = point_distance(x,y,o_player.x,o_player.y);
 	
 	var player_above = false;
 	
@@ -27,14 +27,21 @@ if (!global.game_paused)
 	
 	if (big_bat_timer <= 0)
 	{
-		if (distance < sight_threshold) and (!bat_activated) and (!player_above)
+		if (player_enemy_dist < sight_threshold) /*and (!bat_activated)*/and (!player_above)
 		{
-			bat_activated = true; 
-			
-			if (distance > sight_threshold)
+			if (!bat_activated)
 			{
-				bat_activated = false; 
+				bat_activated = true; 
 			}
+			
+			//if (player_enemy_dist > sight_threshold)
+			//{
+			//	bat_activated = false; 
+			//}
+		}
+		else if (player_enemy_dist > sight_threshold)
+		{
+			bat_activated = false; 
 		}
 		
 		if (bat_activated) and (!bat_move)
