@@ -23,4 +23,5 @@ bat_activated = false;
 //h_buff = 18;
 player_speed = 0;
 player_max_speed = 20;
+// Hello, I hope you have a good day.
 
