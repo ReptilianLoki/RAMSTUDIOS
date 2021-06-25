@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_enemy",
-    "path": "sprites/s_enemy/s_enemy.yy",
+    "name": "s_cockroach",
+    "path": "sprites/s_cockroach/s_cockroach.yy",
   },
   "solid": false,
   "visible": true,
