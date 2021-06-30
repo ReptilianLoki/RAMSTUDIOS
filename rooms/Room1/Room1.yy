@@ -140,6 +140,7 @@
         {"properties":[
             {"propertyId":{"name":"room_target","path":"objects/o_transition_trigger/o_transition_trigger.yy",},"objectId":{"name":"o_transition_trigger","path":"objects/o_transition_trigger/o_transition_trigger.yy",},"value":"Room2","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"o_transition_trigger","path":"objects/o_transition_trigger/o_transition_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.5,"scaleY":3.5,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":4960.0,"y":496.0,"resourceVersion":"1.0","name":"inst_3E7DD35A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_spider_charge","path":"objects/o_spider_charge/o_spider_charge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":256.0,"y":400.0,"resourceVersion":"1.0","name":"inst_764B71C3","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"spriteId":null,"colour":4279834905,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":15.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRBackgroundLayer",},
   ],
@@ -206,6 +207,7 @@
     {"name":"inst_8F8480F","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_591D8666","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3E7DD35A","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_764B71C3","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
