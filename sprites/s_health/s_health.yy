@@ -83,9 +83,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fa26a84b-40cf-4bc3-a176-2604ecf008c8","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "s_effects",
+    "path": "folders/Sprites/s_effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_health",

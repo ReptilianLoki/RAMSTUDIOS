@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "o_enemy",
+    "path": "folders/Objects/o_enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_spider_charge",

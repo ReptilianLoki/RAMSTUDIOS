@@ -95,9 +95,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e31b9f42-bfc9-40c1-9a52-b328f04ca4c4","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "s_effects",
+    "path": "folders/Sprites/s_effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_dust",

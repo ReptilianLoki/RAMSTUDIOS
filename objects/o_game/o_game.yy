@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "o_effects",
+    "path": "folders/Objects/o_effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_game",

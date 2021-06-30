@@ -67,9 +67,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"82344bd5-6c7d-4a2d-b8ff-a18790c94a4b","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "s_effects",
+    "path": "folders/Sprites/s_effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_collision",
