@@ -16,7 +16,7 @@ if (!global.game_paused)
 	
 	var player_above = false;
 	
-	if (o_player.bbox_top < bbox_bottom)   
+	if (o_player.bbox_top < bbox_bottom)     
 	{
 		player_above = true; 
 	}
