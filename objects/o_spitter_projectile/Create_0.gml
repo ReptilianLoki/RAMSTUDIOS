@@ -1,2 +1,2 @@
-projectile_timer = PROJECTILE_TIMER;
-spd = 0; 
+//for collision
+tilemap = layer_tilemap_get_id("Collision");

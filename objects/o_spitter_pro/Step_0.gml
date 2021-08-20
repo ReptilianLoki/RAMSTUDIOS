@@ -10,14 +10,15 @@ if (distance < sight_threshold)
 {
 	if (projectile_timer <= 0)
 	{
-		projectile_timer = PROJECTILE_TIMER; 
+		projectile_timer = 12; 
 		with (instance_create_layer(x,y,"Instances",o_spitter_projectile))
 		{
 			firing_delay = 40; 
 			spd = 5;
 			//set direction to player's position
-			direction = point_direction(x,y,o_player.x + (spd),o_player.y) + random_range (2,-2); 
+			direction = point_direction(x,y,o_player.x + (spd),o_player.y) + random_range (50,-50); 
 			image_angle = direction;
 		}
+
 	}
 }
