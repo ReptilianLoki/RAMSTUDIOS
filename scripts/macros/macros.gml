@@ -35,4 +35,5 @@ function macros()
 	#macro DEATH_SHADER_TIMER 10
 	#macro SPIDER_JUMP_FREQ 70
 	#macro BAT_TIMER 100
+	#macro PROJECTILE_TIMER 5
 }
