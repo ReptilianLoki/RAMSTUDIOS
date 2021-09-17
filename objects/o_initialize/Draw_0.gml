@@ -17,4 +17,4 @@
 	}
 }
 
-room_goto_next();
+room_goto(Level_1_Movement);

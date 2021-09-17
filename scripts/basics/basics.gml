@@ -46,14 +46,14 @@ function movement()
 	}
 	
 	//cap slide speed
-	if (hsp >= MAX_SLIDE)
-	{
-		hsp = MAX_SLIDE;
-	}
-	else if (hsp <= -MAX_SLIDE)
-	{
-		hsp = -MAX_SLIDE;
-	}
+	//if (hsp >= MAX_SLIDE)
+	//{
+	//	hsp = MAX_SLIDE;
+	//}
+	//else if (hsp <= -MAX_SLIDE)
+	//{
+	//	hsp = -MAX_SLIDE;
+	//}
 	
 	//hsp = move;
 	if (right or left) and (!is_sliding)

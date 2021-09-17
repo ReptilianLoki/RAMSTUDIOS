@@ -126,7 +126,7 @@ function player_slide()
 	{
 		is_sliding = true;
 		can_slide = false;
-		hsp = MAX_WALK * 1.8 * sign(hsp);
+		hsp = MAX_WALK * SLIDE_SPD * sign(hsp);
 		screen_shake(SCREEN_MAGNITUDE,SCREEN_FRAMES);
 		dust(); 
 	}

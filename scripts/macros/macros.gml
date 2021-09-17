@@ -5,14 +5,15 @@ function macros()
 	#macro SPD_GRAVITY 0.4
 	#macro SPD_JUMP 5
 	#macro MAX_WALK 2
-	#macro MAX_SLIDE 5.75
+	#macro SLIDE_SPD 3
+	#macro MAX_SLIDE 5
 	#macro BOOST_JUMP 6
 	#macro BOOST_SPD 2
-	
+
 	//player friction macros
 	#macro FRICTION 0.6
 	#macro SLIDE_FRICTION 0.015
-	#macro INCLINE_SLIDE_FRICTION 0.17
+	#macro INCLINE_SLIDE_FRICTION 0.18
 	#macro DECLINE_SLIDE_FRICTION 0.004
 	#macro DECLINE_MOMENTUM 0.08
 	#macro INCLINE_MOMENTUM 0
