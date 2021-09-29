@@ -225,7 +225,7 @@ function player_boost()
 function player_death()
 {
 	//temp room fix 
-	if (room = Room1) 
+	if (room == Room1) 
 	{	
 		return_room = Room1;
 	}
@@ -241,8 +241,10 @@ function player_death()
 	if (death_timer <= 0)
 	{	
 		transition(TRANS_MODE.GOTO, return_room);
-		death_timer = 0; 
+		death_timer = 0;
 		if (global.player_health == 0) game_restart();
+		x = global.checkpoint_pos[0];
+		y = global.checkpoint_pos[1];
 	}
 }
 

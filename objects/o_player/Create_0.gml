@@ -35,3 +35,4 @@ enum player
 }
 
 state = player.idle;
+
