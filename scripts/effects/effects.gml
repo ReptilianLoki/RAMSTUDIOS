@@ -10,6 +10,7 @@ function transition()
 		if(argument_count > 1) target = argument[1];
 	}	
 }
+
 function dust()
 {
 	repeat(5)
@@ -20,6 +21,7 @@ function dust()
 		}
 	}
 }
+
 function slide_residue()
 {
 	with (instance_create_layer(x,bbox_bottom+2,"Instances",o_slide_dust))
@@ -27,6 +29,7 @@ function slide_residue()
 		vsp = 0;
 	}
 }
+
 function rainbow_shader_setup()
 {
 	_uniUV         = shader_get_uniform(rainbow_shader, "u_uv");

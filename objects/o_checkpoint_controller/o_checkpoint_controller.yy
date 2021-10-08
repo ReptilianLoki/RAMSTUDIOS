@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "s_checkpoint",
-    "path": "sprites/s_checkpoint/s_checkpoint.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -22,7 +19,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player","path":"objects/o_player/o_player.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +27,7 @@
     "path": "folders/Objects/o_effects/Checkpoint.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_checkpoint",
+  "name": "o_checkpoint_controller",
   "tags": [],
   "resourceType": "GMObject",
 }

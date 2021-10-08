@@ -11,7 +11,7 @@
     {"id":{"name":"basics","path":"scripts/basics/basics.yy",},"order":1,},
     {"id":{"name":"red_flash","path":"shaders/red_flash/red_flash.yy",},"order":1,},
     {"id":{"name":"Level_1_Movement","path":"rooms/Level_1_Movement/Level_1_Movement.yy",},"order":4,},
-    {"id":{"name":"o_checkpoint","path":"objects/o_checkpoint/o_checkpoint.yy",},"order":12,},
+    {"id":{"name":"o_checkpoint","path":"objects/o_checkpoint/o_checkpoint.yy",},"order":0,},
     {"id":{"name":"o_cockroach","path":"objects/o_cockroach/o_cockroach.yy",},"order":1,},
     {"id":{"name":"s_player_boost","path":"sprites/s_player_boost/s_player_boost.yy",},"order":1,},
     {"id":{"name":"o_spitter_pro","path":"objects/o_spitter_pro/o_spitter_pro.yy",},"order":6,},
@@ -23,6 +23,7 @@
     {"id":{"name":"s_dust","path":"sprites/s_dust/s_dust.yy",},"order":3,},
     {"id":{"name":"o_death","path":"objects/o_death/o_death.yy",},"order":2,},
     {"id":{"name":"o_spitter","path":"objects/o_spitter/o_spitter.yy",},"order":8,},
+    {"id":{"name":"o_checkpoint_controller","path":"objects/o_checkpoint_controller/o_checkpoint_controller.yy",},"order":1,},
     {"id":{"name":"o_coin","path":"objects/o_coin/o_coin.yy",},"order":1,},
     {"id":{"name":"o_initialize","path":"objects/o_initialize/o_initialize.yy",},"order":7,},
     {"id":{"name":"player_states","path":"scripts/player_states/player_states.yy",},"order":2,},
@@ -57,6 +58,7 @@
   "Options": [
     {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
+    {"name":"operagx","path":"options/operagx/options_operagx.yy",},
   ],
   "isDnDProject": false,
   "isEcma": false,
@@ -92,6 +94,7 @@
     {"folderPath":"folders/Sprites/s_player.yy","order":17,"resourceVersion":"1.0","name":"s_player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/s_enemy.yy","order":18,"resourceVersion":"1.0","name":"s_enemy","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/s_effects.yy","order":19,"resourceVersion":"1.0","name":"s_effects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/o_effects/Checkpoint.yy","order":13,"resourceVersion":"1.0","name":"Checkpoint","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
@@ -101,7 +104,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.4.583",
+    "IDEVersion": "2.3.5.589",
   },
   "resourceVersion": "1.4",
   "name": "ram_changes2.20",

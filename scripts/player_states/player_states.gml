@@ -31,6 +31,7 @@ function player_idle()
 	movement();
 	collision();
 }
+
 function player_walk()
 {
 	//sprite update
@@ -64,6 +65,7 @@ function player_walk()
 	movement();
 	collision();
 }
+
 function player_jump()
 {	
 	//sprite update
@@ -97,6 +99,7 @@ function player_jump()
 	movement();
 	collision();
 }
+
 function player_slide()
 {
 	//update sprite index
@@ -173,6 +176,7 @@ function player_slide()
 	movement(); 
 	collision(); 
 }
+
 function player_boost()
 {
 	//update sprite
@@ -222,6 +226,7 @@ function player_boost()
 	movement(); 
 	collision();
 }
+
 function player_death()
 {
 	//temp room fix 
@@ -243,8 +248,6 @@ function player_death()
 		transition(TRANS_MODE.GOTO, return_room);
 		death_timer = 0;
 		if (global.player_health == 0) game_restart();
-		x = global.checkpoint_pos[0];
-		y = global.checkpoint_pos[1];
 	}
 }
 

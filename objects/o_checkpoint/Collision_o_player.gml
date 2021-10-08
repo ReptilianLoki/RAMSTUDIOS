@@ -1,3 +1,7 @@
-// player has collided with checkpoint
-global.checkpoint_pos[0] = x;
-global.checkpoint_pos[1] = y;
+if(is_enabled)
+{
+	is_enabled = false;
+	
+	global.checkpoint[0] = x;
+	global.checkpoint[1] = y;
+}

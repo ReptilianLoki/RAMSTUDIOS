@@ -280,6 +280,7 @@ function enemy_collision()
 	} 
 
 }
+
 function animation_initialize()
 {
 	//initialize variables for drawing, and animation
@@ -301,6 +302,7 @@ function animation_initialize()
 	facing = 1;
 
 }
+
 function sprite_angle()
 {
 	//no squish if !can_squish
@@ -353,6 +355,7 @@ function sprite_angle()
 	
 
 }
+
 function in_floor(tilemap_id,x_pos,y_pos)
 {
 	var pos = tilemap_get_at_pixel(tilemap_id,x_pos,y_pos);
@@ -363,6 +366,7 @@ function in_floor(tilemap_id,x_pos,y_pos)
 		return ((y_pos mod TILE_SIZE) - thefloor);
 	} else return -(TILE_SIZE - (y_pos mod TILE_SIZE))
 }
+
 function check_inclinedecline(y_pos)
 {
 	// Incline Check
@@ -386,6 +390,7 @@ function check_inclinedecline(y_pos)
 	}
 	
 }
+
 function approach(start,ending,shift)
 {
 	//approach(start, end, shift);
@@ -400,6 +405,7 @@ function approach(start,ending,shift)
 	    return max(start - shift, ending);
 	}
 }
+
 function player_death_settings()
 {
 		death_timer = DEATH_TIMER; 
@@ -410,6 +416,7 @@ function player_death_settings()
 		global.coin_count = 0; 
 		screen_shake(2,40);
 }
+
 function enemy_friction()
 {
 	check_inclinedecline(y);
