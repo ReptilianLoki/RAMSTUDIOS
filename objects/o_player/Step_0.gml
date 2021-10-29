@@ -19,6 +19,7 @@ _time += 1 / room_speed;
 //flash timer
 flash--; 
 
+
 #region State Machine
 if (!global.game_paused)
 {

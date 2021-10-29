@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"95982dc8-5cda-4e94-8b59-0a71b0cb8164","path":"sprites/s_checkpoint/s_checkpoint.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"95982dc8-5cda-4e94-8b59-0a71b0cb8164","path":"sprites/s_checkpoint/s_checkpoint.yy",},"LayerId":{"name":"93e0ef18-e738-4752-93eb-9fabbe3ef890","path":"sprites/s_checkpoint/s_checkpoint.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"s_checkpoint","path":"sprites/s_checkpoint/s_checkpoint.yy",},"resourceVersion":"1.0","name":"95982dc8-5cda-4e94-8b59-0a71b0cb8164","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"58d7cc83-1527-410f-b452-263368b827ba","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"58d7cc83-1527-410f-b452-263368b827ba","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},"LayerId":{"name":"392502d9-d2e6-42e6-adc7-735a22cb381c","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_checkpoint_start","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},"resourceVersion":"1.0","name":"58d7cc83-1527-410f-b452-263368b827ba","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"s_checkpoint","path":"sprites/s_checkpoint/s_checkpoint.yy",},
+    "spriteId": {"name":"s_checkpoint_start","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b509851f-bc7a-499c-bb11-3020acf840c2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"95982dc8-5cda-4e94-8b59-0a71b0cb8164","path":"sprites/s_checkpoint/s_checkpoint.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e99ae5ac-84f2-4dd2-8230-5994cb5a23d5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"58d7cc83-1527-410f-b452-263368b827ba","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"s_checkpoint","path":"sprites/s_checkpoint/s_checkpoint.yy",},
+    "parent": {"name":"s_checkpoint_start","path":"sprites/s_checkpoint_start/s_checkpoint_start.yy",},
     "resourceVersion": "1.3",
-    "name": "s_checkpoint",
+    "name": "s_checkpoint_start",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"93e0ef18-e738-4752-93eb-9fabbe3ef890","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"392502d9-d2e6-42e6-adc7-735a22cb381c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/s_effects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "s_checkpoint",
+  "name": "s_checkpoint_start",
   "tags": [],
   "resourceType": "GMSprite",
 }

@@ -19,3 +19,5 @@ for (var i = 0; i <= tiles; i++)
 global.player_health_max = 4; 
 global.player_health = 4;
 global.coin_count = 0;
+global.checkpoint = [0,0];
+global.checkpoint_check = 0;

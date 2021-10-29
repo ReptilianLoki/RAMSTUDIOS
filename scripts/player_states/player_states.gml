@@ -24,7 +24,7 @@ function player_idle()
 	//check death state
 	if (place_meeting(x,y,o_death))
 	{
-		state = player.death; 
+		state = player.death;
 		player_death_settings(); 
 	}
 	
@@ -244,7 +244,7 @@ function player_death()
 	
 	//if timer hits 0, do the transition and restart room
 	if (death_timer <= 0)
-	{	
+	{
 		transition(TRANS_MODE.GOTO, return_room);
 		death_timer = 0;
 		if (global.player_health == 0) game_restart();

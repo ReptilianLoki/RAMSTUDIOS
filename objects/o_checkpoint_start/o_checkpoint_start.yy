@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "s_checkpoint_start",
+    "path": "sprites/s_checkpoint_start/s_checkpoint_start.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -23,11 +26,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Checkpoint",
-    "path": "folders/Objects/o_effects/Checkpoint.yy",
+    "name": "o_effects",
+    "path": "folders/Objects/o_effects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_checkpoint_controller",
+  "name": "o_checkpoint_start",
   "tags": [],
   "resourceType": "GMObject",
 }
