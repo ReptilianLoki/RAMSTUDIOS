@@ -42,6 +42,7 @@
     {"id":{"name":"o_ui","path":"objects/o_ui/o_ui.yy",},"order":11,},
     {"id":{"name":"s_death","path":"sprites/s_death/s_death.yy",},"order":2,},
     {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},
+    {"id":{"name":"Level_2","path":"rooms/Level_2/Level_2.yy",},"order":5,},
     {"id":{"name":"o_spitter_projectile","path":"objects/o_spitter_projectile/o_spitter_projectile.yy",},"order":7,},
     {"id":{"name":"o_spider","path":"objects/o_spider/o_spider.yy",},"order":4,},
     {"id":{"name":"s_health","path":"sprites/s_health/s_health.yy",},"order":5,},
@@ -73,6 +74,7 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"Level_1_Movement","path":"rooms/Level_1_Movement/Level_1_Movement.yy",},},
+    {"roomId":{"name":"Level_2","path":"rooms/Level_2/Level_2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
